@@ -1,0 +1,178 @@
+Program.Sub.ScreenSU.Start
+gui.F_Maint..create
+gui.F_Maint..caption("Occurrence Point Maintenance")
+gui.F_Maint..size(5370,4755)
+gui.F_Maint..position(0,0)
+gui.F_Maint..event(unload,f_maint_unload)
+gui.F_Maint..alwaysontop(False)
+gui.F_Maint..fontname("Arial")
+gui.F_Maint..fontsize(8)
+gui.F_Maint..forecolor(0)
+gui.F_Maint..fontstyle(,,,,)
+gui.F_Maint..BackColor(-2147483633)
+gui.F_Maint..controlbox(True)
+gui.F_Maint..maxbutton(False)
+gui.F_Maint..minbutton(True)
+gui.F_Maint..mousepointer(0)
+gui.F_Maint..moveable(True)
+gui.F_Maint..sizeable(False)
+gui.F_Maint..ShowInTaskBar(True)
+gui.F_Maint..titlebar(True)
+gui.F_Maint.lbl_txt1.create(label,"ID",True,1800,200,1,100,100,True,0,Arial,8,-2147483633,0)
+gui.F_Maint.txtID.create(textbox,"",True,330,330,0,100,300,False,0,Arial,8,16777215,1)
+gui.F_Maint.lbl_txt2.create(label,"Occurrence",True,1800,200,1,565,100,True,0,Arial,8,-2147483633,0)
+gui.F_Maint.txtOcc.create(textbox,"",True,2445,330,0,550,300,False,0,Arial,8,16777215,1)
+gui.F_Maint.txtOcc.numericonly(2)
+gui.F_Maint.lbl_txt3.create(label,"Point Value",True,1800,200,1,3160,100,True,0,Arial,8,-2147483633,0)
+gui.F_Maint.txtPoint.create(textbox,"",True,855,330,0,3145,300,True,0,Arial,8,16777215,1)
+gui.F_Maint.txtPoint.numericonly(1)
+gui.F_Maint.txtPoint.maxLength(8)
+gui.F_Maint.cmdSave.create(button)
+gui.F_Maint.cmdSave.caption("Save")
+gui.F_Maint.cmdSave.visible(True)
+gui.F_Maint.cmdSave.size(1000,360)
+gui.F_Maint.cmdSave.zorder(0)
+gui.F_Maint.cmdSave.position(4120,280)
+gui.F_Maint.cmdSave.enabled(True)
+gui.F_Maint.cmdSave.fontname("Arial")
+gui.F_Maint.cmdSave.fontsize(8)
+gui.F_Maint.cmdSave.event(click,cmdsave_click)
+gui.F_Maint.lvwOcc.create(listview)
+gui.F_Maint.lvwOcc.view(3)
+gui.F_Maint.lvwOcc.addlistviewcolumn("ID",500,0)
+gui.F_Maint.lvwOcc.addlistviewcolumn("Occurrence",3200,0)
+gui.F_Maint.lvwOcc.addlistviewcolumn("Point Value",1000,0)
+gui.F_Maint.lvwOcc.visible(True)
+gui.F_Maint.lvwOcc.size(5145,3330)
+gui.F_Maint.lvwOcc.zorder(0)
+gui.F_Maint.lvwOcc.position(100,810)
+gui.F_Maint.lvwOcc.enabled(True)
+gui.F_Maint.lvwOcc.fontname("Arial")
+gui.F_Maint.lvwOcc.fontsize(8)
+gui.F_Maint.lvwOcc.event(click,lvwocc_itemclick)
+gui.F_Maint.lvwOcc.event(itemclick,lvwocc_itemclick)
+gui.F_Maint.txtPoint.tabstop(true)
+gui.F_Maint.txtPoint.tabindex(1)
+gui.F_Maint.cmdSave.tabstop(true)
+gui.F_Maint.cmdSave.tabindex(2)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Coded by: MLA
+'Project Start Date: 2/27/2011
+'Notes:
+'  Precision Edge
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass,7200)
+F.Intrinsic.Control.CallSub(Listload)
+Gui.F_Maint..Show
+
+Program.Sub.Main.End
+
+program.sub.f_maint_unload.start
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+program.sub.f_maint_unload.end
+
+Program.Sub.ListLoad.Start
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.sID.Declare(String)
+V.Local.sOcc.Declare(String)
+V.Local.i.Declare(Long)
+
+F.Intrinsic.Control.SetErrorHandler("ListLoad_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sID.Set("1*!*3*!*4*!*10")
+V.Local.sOcc.Set("Absent*!*Late*!*Early Out*!*Late Lunch In")
+F.Intrinsic.String.Split(V.Local.sID,"*!*",V.Local.sID)
+F.Intrinsic.String.Split(V.Local.sOcc,"*!*",V.Local.sOcc)
+Gui.F_Maint.lvwOcc.ClearItems
+V.Local.sSql.Set("Select * from ATG_3837_Emp_PntsMnt")
+F.ODBC.Connection!con.OpenRecordsetRW("rst",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+	F.Intrinsic.Control.For(V.Local.i,V.Local.sID.LBound,V.Local.sID.UBound,1)
+		F.ODBC.con!rst.AddNew
+		F.ODBC.con!rst.Set!Occ_ID(V.Local.sID(v.Local.i).Long)
+		Gui.F_Maint.lvwOcc.AddListItem(V.Local.sID(V.Local.i).Long,V.Local.sID(V.Local.i).Long)
+		F.ODBC.con!rst.Set!Occurrence(V.Local.sOcc(V.Local.i))
+		Gui.F_Maint.lvwOcc.SetListItemSubItemText(V.Local.sID(V.Local.i).Long,1,V.Local.sOcc(V.Local.i))
+		F.ODBC.con!rst.Set!Occ_Point(0)
+		Gui.F_Maint.lvwOcc.SetListItemSubItemText(V.Local.sID(v.Local.i).Long,2,0)
+		F.ODBC.con!rst.Update
+	F.Intrinsic.Control.Next(V.Local.i)
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.DoUntil(V.ODBC.con!rst.EOF,=,True)
+		Gui.F_Maint.lvwOcc.AddListItem(V.ODBC.con!rst.FieldValLong!Occ_ID,V.ODBC.con!rst.FieldValLong!Occ_ID)
+		Gui.F_Maint.lvwOcc.SetListItemSubItemText(V.ODBC.con!rst.FieldValLong!Occ_ID,1,V.ODBC.con!rst.FieldValTrim!Occurrence)
+		Gui.F_Maint.lvwOcc.SetListItemSubItemText(V.ODBC.con!rst.FieldValLong!Occ_ID,2,V.ODBC.con!rst.FieldValFloat!Occ_Point)
+		F.ODBC.con!rst.MoveNext
+	F.Intrinsic.Control.Loop
+F.Intrinsic.Control.EndIf
+F.ODBC.con!rst.Close
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("ListLoad_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.ListLoad.End
+
+program.sub.lvwocc_itemclick.start
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("lvwOccClick_Err")
+F.Intrinsic.Control.ClearErrors
+
+Gui.F_Maint.txtID.Text(V.Screen.F_Maint!lvwOcc.SelectedItemKey)
+Gui.F_Maint.txtOcc.Text(V.Screen.F_Maint!lvwOcc.SelectedItemSubItem(1))
+Gui.F_Maint.txtPoint.Text(V.Screen.F_Maint!lvwOcc.SelectedItemSubItem(2))
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("lvwOccClick_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.lvwocc_itemclick.end
+
+program.sub.cmdsave_click.start
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("Error_Err")
+F.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.String.Concat("Select * From ATG_3837_Emp_PntsMnt where Occ_ID = ",V.Screen.F_Maint!txtID.Text,V.Local.sSql)
+F.ODBC.Connection!con.OpenRecordsetRW("rst",V.Local.sSql)
+F.ODBC.con!rst.Set!Occ_Point(V.Screen.F_Maint!txtPoint.Text)
+F.ODBC.con!rst.Update
+F.ODBC.con!rst.Close
+F.Intrinsic.Control.CallSub(Listload)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Error_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdsave_click.end
+
+
