@@ -1,0 +1,7 @@
+DROP TABLE "ATG_3837_Emp_PntsMnt" IN DICTIONARY;
+CREATE TABLE "ATG_3837_Emp_PntsMnt"(
+ "Occ_ID" INTEGER,
+ "Occurrence" VARCHAR(30),
+ "Occ_Point" DOUBLE
+);
+CREATE INDEX "ID" ON "ATG_3837_Emp_PntsMnt"("Occ_ID");
