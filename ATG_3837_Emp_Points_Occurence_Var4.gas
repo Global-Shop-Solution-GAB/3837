@@ -1,0 +1,2008 @@
+Program.Sub.ScreenSU.Start
+gui.F_EmpOcc..create
+gui.F_EmpOcc..caption("Employee Occurrence Review")
+gui.F_EmpOcc..size(5950,5835)
+gui.F_EmpOcc..position(0,0)
+gui.F_EmpOcc..event(unload,f_empocc_unload)
+gui.F_EmpOcc..alwaysontop(False)
+gui.F_EmpOcc..fontname("Arial")
+gui.F_EmpOcc..fontsize(8)
+gui.F_EmpOcc..forecolor(0)
+gui.F_EmpOcc..fontstyle(,,,,)
+gui.F_EmpOcc..BackColor(-2147483633)
+gui.F_EmpOcc..controlbox(True)
+gui.F_EmpOcc..maxbutton(False)
+gui.F_EmpOcc..minbutton(False)
+gui.F_EmpOcc..mousepointer(0)
+gui.F_EmpOcc..moveable(True)
+gui.F_EmpOcc..sizeable(False)
+gui.F_EmpOcc..ShowInTaskBar(True)
+gui.F_EmpOcc..titlebar(True)
+gui.F_EmpOcc.lbl_dp1.create(label,"Start Date",True,1800,200,1,100,100,True,0,Arial,8,-2147483633,0)
+gui.F_EmpOcc.dtpStart.create(datepicker)
+gui.F_EmpOcc.dtpStart.visible(True)
+gui.F_EmpOcc.dtpStart.size(1800,345)
+gui.F_EmpOcc.dtpStart.zorder(0)
+gui.F_EmpOcc.dtpStart.position(100,300)
+gui.F_EmpOcc.dtpStart.enabled(True)
+gui.F_EmpOcc.dtpStart.checkbox(False)
+gui.F_EmpOcc.lbl_dp2.create(label,"End Date",True,1800,200,1,1950,100,True,0,Arial,8,-2147483633,0)
+gui.F_EmpOcc.dtpStop.create(datepicker)
+gui.F_EmpOcc.dtpStop.visible(True)
+gui.F_EmpOcc.dtpStop.size(1800,345)
+gui.F_EmpOcc.dtpStop.zorder(0)
+gui.F_EmpOcc.dtpStop.position(1950,300)
+gui.F_EmpOcc.dtpStop.enabled(True)
+gui.F_EmpOcc.dtpStop.checkbox(False)
+gui.F_EmpOcc.lbl_txtBeg.create(label,"Beginning Employee",True,1800,200,1,100,1345,True,0,Arial,8,-2147483633,0)
+gui.F_EmpOcc.txtBeg.create(textbox,"",True,1800,330,0,100,1545,True,0,Arial,8,16777215,1)
+gui.F_EmpOcc.txtBeg.maxLength(8)
+gui.F_EmpOcc.txtBeg.event(lostfocus,txtempbeg_lostfocus)
+gui.F_EmpOcc.cmdBegBrows.create(button)
+gui.F_EmpOcc.cmdBegBrows.caption("^")
+gui.F_EmpOcc.cmdBegBrows.visible(True)
+gui.F_EmpOcc.cmdBegBrows.size(330,330)
+gui.F_EmpOcc.cmdBegBrows.zorder(0)
+gui.F_EmpOcc.cmdBegBrows.position(1950,1545)
+gui.F_EmpOcc.cmdBegBrows.enabled(True)
+gui.F_EmpOcc.cmdBegBrows.fontname("Arial")
+gui.F_EmpOcc.cmdBegBrows.fontsize(8)
+gui.F_EmpOcc.cmdBegBrows.event(click,cmdbegbrows_click)
+gui.F_EmpOcc.lbl_txtEnd.create(label,"Ending Employee",True,1800,200,1,2350,1345,True,0,Arial,8,-2147483633,0)
+gui.F_EmpOcc.txtEnd.create(textbox,"",True,1800,330,0,2350,1545,True,0,Arial,8,16777215,1)
+gui.F_EmpOcc.txtEnd.maxLength(8)
+gui.F_EmpOcc.cmdEndBrows.create(button)
+gui.F_EmpOcc.cmdEndBrows.caption("^")
+gui.F_EmpOcc.cmdEndBrows.visible(True)
+gui.F_EmpOcc.cmdEndBrows.size(330,330)
+gui.F_EmpOcc.cmdEndBrows.zorder(0)
+gui.F_EmpOcc.cmdEndBrows.position(4200,1545)
+gui.F_EmpOcc.cmdEndBrows.enabled(True)
+gui.F_EmpOcc.cmdEndBrows.fontname("Arial")
+gui.F_EmpOcc.cmdEndBrows.fontsize(8)
+gui.F_EmpOcc.cmdEndBrows.event(click,cmdendbrows_click)
+gui.F_EmpOcc.chkAll.create(checkbox)
+gui.F_EmpOcc.chkAll.caption("All Employees")
+gui.F_EmpOcc.chkAll.visible(True)
+gui.F_EmpOcc.chkAll.size(1800,300)
+gui.F_EmpOcc.chkAll.zorder(0)
+gui.F_EmpOcc.chkAll.position(100,1975)
+gui.F_EmpOcc.chkAll.enabled(True)
+gui.F_EmpOcc.chkAll.alignment(0)
+gui.F_EmpOcc.chkAll.fontname("Arial")
+gui.F_EmpOcc.chkAll.fontsize(8)
+gui.F_EmpOcc.chkAll.event(click,chkall_click)
+gui.F_EmpOcc.lvw.create(listview)
+gui.F_EmpOcc.lvw.view(3)
+gui.F_EmpOcc.lvw.addlistviewcolumn("Beginning Employee",2600,0)
+gui.F_EmpOcc.lvw.addlistviewcolumn("Ending Employee",2600,0)
+gui.F_EmpOcc.lvw.visible(True)
+gui.F_EmpOcc.lvw.size(5600,2000)
+gui.F_EmpOcc.lvw.zorder(0)
+gui.F_EmpOcc.lvw.position(100,2325)
+gui.F_EmpOcc.lvw.enabled(True)
+gui.F_EmpOcc.lvw.fontname("Arial")
+gui.F_EmpOcc.lvw.fontsize(8)
+gui.F_EmpOcc.cmdAdd.create(button)
+gui.F_EmpOcc.cmdAdd.caption("Add")
+gui.F_EmpOcc.cmdAdd.visible(True)
+gui.F_EmpOcc.cmdAdd.size(1000,330)
+gui.F_EmpOcc.cmdAdd.zorder(0)
+gui.F_EmpOcc.cmdAdd.position(4600,1545)
+gui.F_EmpOcc.cmdAdd.enabled(True)
+gui.F_EmpOcc.cmdAdd.fontname("Arial")
+gui.F_EmpOcc.cmdAdd.fontsize(8)
+gui.F_EmpOcc.cmdAdd.event(click,cmdadd_click)
+gui.F_EmpOcc.cmdDelete.create(button)
+gui.F_EmpOcc.cmdDelete.caption("Delete")
+gui.F_EmpOcc.cmdDelete.visible(True)
+gui.F_EmpOcc.cmdDelete.size(1000,330)
+gui.F_EmpOcc.cmdDelete.zorder(0)
+gui.F_EmpOcc.cmdDelete.position(100,4375)
+gui.F_EmpOcc.cmdDelete.enabled(True)
+gui.F_EmpOcc.cmdDelete.fontname("Arial")
+gui.F_EmpOcc.cmdDelete.fontsize(8)
+gui.F_EmpOcc.cmdDelete.event(click,cmddelete_click)
+gui.F_EmpOcc.cmdClear.create(button)
+gui.F_EmpOcc.cmdClear.caption("Clear")
+gui.F_EmpOcc.cmdClear.visible(True)
+gui.F_EmpOcc.cmdClear.size(1000,330)
+gui.F_EmpOcc.cmdClear.zorder(0)
+gui.F_EmpOcc.cmdClear.position(1150,4375)
+gui.F_EmpOcc.cmdClear.enabled(True)
+gui.F_EmpOcc.cmdClear.fontname("Arial")
+gui.F_EmpOcc.cmdClear.fontsize(8)
+gui.F_EmpOcc.cmdClear.event(click,cmdclear_click)
+gui.F_EmpOcc.cmdOk.create(button)
+gui.F_EmpOcc.cmdOk.caption("Ok")
+gui.F_EmpOcc.cmdOk.visible(True)
+gui.F_EmpOcc.cmdOk.size(1000,360)
+gui.F_EmpOcc.cmdOk.zorder(0)
+gui.F_EmpOcc.cmdOk.position(100,4845)
+gui.F_EmpOcc.cmdOk.enabled(True)
+gui.F_EmpOcc.cmdOk.fontname("Arial")
+gui.F_EmpOcc.cmdOk.fontsize(8)
+gui.F_EmpOcc.cmdOk.event(click,cmdok_click)
+gui.F_EmpOcc.ddlSelect.create(dropdownlist)
+gui.F_EmpOcc.ddlSelect.visible(True)
+gui.F_EmpOcc.ddlSelect.size(1800,330)
+gui.F_EmpOcc.ddlSelect.zorder(0)
+gui.F_EmpOcc.ddlSelect.position(100,925)
+gui.F_EmpOcc.ddlSelect.enabled(True)
+gui.F_EmpOcc.ddlSelect.fontname("Arial")
+gui.F_EmpOcc.ddlSelect.fontsize(8)
+gui.F_EmpOcc.ddlSelect.event(click,ddlselect_click)
+gui.F_EmpOcc.lbl7.create(label,"Select by",True,1800,255,1,100,715,True,0,Arial,8,-2147483633,0)
+
+
+gui.F_EmpOccRev..create
+gui.F_EmpOccRev..caption("Employee Occurrence Review")
+gui.F_EmpOccRev..size(15825,10725)
+gui.F_EmpOccRev..position(0,0)
+gui.F_EmpOccRev..event(unload,f_empocc_unload)
+gui.F_EmpOccRev..alwaysontop(False)
+gui.F_EmpOccRev..fontname("Arial")
+gui.F_EmpOccRev..fontsize(8)
+gui.F_EmpOccRev..forecolor(0)
+gui.F_EmpOccRev..fontstyle(,,,,)
+gui.F_EmpOccRev..BackColor(-2147483633)
+gui.F_EmpOccRev..controlbox(True)
+gui.F_EmpOccRev..maxbutton(False)
+gui.F_EmpOccRev..minbutton(False)
+gui.F_EmpOccRev..mousepointer(0)
+gui.F_EmpOccRev..moveable(True)
+gui.F_EmpOccRev..sizeable(False)
+gui.F_EmpOccRev..ShowInTaskBar(True)
+gui.F_EmpOccRev..titlebar(True)
+gui.F_EmpOccRev.gsfgOcc.create(gsflexgrid)
+gui.F_EmpOccRev.gsfgOcc.FixedRows(0)
+gui.F_EmpOccRev.gsfgOcc.FixedCols(0)
+gui.F_EmpOccRev.gsfgOcc.visible(True)
+gui.F_EmpOccRev.gsfgOcc.size(15450,9450)
+gui.F_EmpOccRev.gsfgOcc.zorder(0)
+gui.F_EmpOccRev.gsfgOcc.position(100,200)
+gui.F_EmpOccRev.gsfgOcc.enabled(True)
+gui.F_EmpOccRev.gsfgOcc.event(cellenter,gsfgocc_cellenter)
+gui.F_EmpOccRev.gsfgOcc.event(cellexit,gsfgocc_cellexit)
+gui.F_EmpOccRev.gsfgOcc.event(commandclick,gsfgocc_commandclick)
+gui.F_EmpOccRev.cmdSave.create(button)
+gui.F_EmpOccRev.cmdSave.caption("Save")
+gui.F_EmpOccRev.cmdSave.visible(True)
+gui.F_EmpOccRev.cmdSave.size(855,375)
+gui.F_EmpOccRev.cmdSave.zorder(0)
+gui.F_EmpOccRev.cmdSave.position(100,9795)
+gui.F_EmpOccRev.cmdSave.enabled(True)
+gui.F_EmpOccRev.cmdSave.fontname("Arial")
+gui.F_EmpOccRev.cmdSave.fontsize(8)
+gui.F_EmpOccRev.cmdSave.event(click,cmdsave_click)
+
+
+gui.F_EmpOccNote..create
+gui.F_EmpOccNote..caption("Occurrence Notes")
+gui.F_EmpOccNote..size(9225,5970)
+gui.F_EmpOccNote..position(0,0)
+gui.F_EmpOccNote..event(unload,f_empoccnote_unload)
+gui.F_EmpOccNote..alwaysontop(True)
+gui.F_EmpOccNote..fontname("Arial")
+gui.F_EmpOccNote..fontsize(8)
+gui.F_EmpOccNote..forecolor(0)
+gui.F_EmpOccNote..fontstyle(,,,,)
+gui.F_EmpOccNote..BackColor(-2147483633)
+gui.F_EmpOccNote..controlbox(True)
+gui.F_EmpOccNote..maxbutton(False)
+gui.F_EmpOccNote..minbutton(False)
+gui.F_EmpOccNote..mousepointer(0)
+gui.F_EmpOccNote..moveable(True)
+gui.F_EmpOccNote..sizeable(False)
+gui.F_EmpOccNote..ShowInTaskBar(True)
+gui.F_EmpOccNote..titlebar(True)
+gui.F_EmpOccNote.mltxtNote.create(textboxm)
+gui.F_EmpOccNote.mltxtNote.text("")
+gui.F_EmpOccNote.mltxtNote.visible(True)
+gui.F_EmpOccNote.mltxtNote.size(8850,4785)
+gui.F_EmpOccNote.mltxtNote.zorder(0)
+gui.F_EmpOccNote.mltxtNote.position(100,200)
+gui.F_EmpOccNote.mltxtNote.enabled(True)
+gui.F_EmpOccNote.mltxtNote.alignment(0)
+gui.F_EmpOccNote.mltxtNote.fontname("Arial")
+gui.F_EmpOccNote.mltxtNote.fontsize(8)
+gui.F_EmpOccNote.mltxtNote.BackColor(-2147483643)
+gui.F_EmpOccNote.cmdNoteSave.create(button)
+gui.F_EmpOccNote.cmdNoteSave.caption("Save")
+gui.F_EmpOccNote.cmdNoteSave.visible(True)
+gui.F_EmpOccNote.cmdNoteSave.size(855,375)
+gui.F_EmpOccNote.cmdNoteSave.zorder(0)
+gui.F_EmpOccNote.cmdNoteSave.position(100,5100)
+gui.F_EmpOccNote.cmdNoteSave.enabled(True)
+gui.F_EmpOccNote.cmdNoteSave.fontname("Arial")
+gui.F_EmpOccNote.cmdNoteSave.fontsize(8)
+gui.F_EmpOccNote.cmdNoteSave.event(click,cmdnotesave_click)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+
+Variable.Global.iEmpKey.Declare(Long,0)
+Variable.Global.iDeptKey.Declare(Long,0)
+Variable.Global.bChkOpt.Declare(Boolean,True)
+Variable.UDT.uTA.Define("Employee",String,"EMPLOYEE")
+Variable.UDT.uTA.Define("Name",String,"NAME")
+Variable.UDT.uTA.Define("DateIn",Date,"DATE_IN")
+Variable.UDT.uTA.Define("DateOut",Date,"DATE_OUT")
+Variable.UDT.uTA.Define("TimeIn",Date,"TIME_IN")
+Variable.UDT.uTA.Define("TimeOut",Date,"TIME_OUT")
+Variable.UDT.uTA.Define("Dept",String,"DEPT")
+Variable.UDT.uTA.Define("Shift",Long,"SHIFT")
+Variable.UDT.uTA.Define("BalGroup",String,"REC_GROUP")
+Variable.UDT.uTA.Define("RecType",String,"REC_TYPE")
+Variable.UDT.uTA.Define("Hours",Long,"HOURS_HH")
+Variable.UDT.uTA.Define("Minutes",Long,"HOURS_MM")
+Variable.UDT.uTA.Define("LunchOut",Date)
+Variable.UDT.uTA.Define("LunchIn",Date)
+Variable.UDT.uTA.Define("Lunch",Boolean)
+Variable.uGlobal.uTA.Declare("uTA")
+Variable.UDT.uEmp.Define("Employee",String,"EMPLOYEE")
+Variable.uGlobal.uEmp.Declare("uEmp")
+Variable.UDT.uDept.Define("Dept",String,"DEPT_ID")
+Variable.uGlobal.uDept.Declare("uDept")
+Variable.UDT.uOcc.Define("Employee",String)
+Variable.UDT.uOcc.Define("Name",String)
+Variable.UDT.uOcc.Define("DateIn",Date)
+Variable.UDT.uOcc.Define("DateOut",Date)
+Variable.UDT.uOcc.Define("Shift",Long)
+Variable.UDT.uOcc.Define("Dept",String)
+Variable.UDT.uOcc.Define("BalGroup",String)
+Variable.UDT.uOcc.Define("OccID",Long)
+Variable.UDT.uOcc.Define("OccName",String)
+Variable.UDT.uOcc.Define("OccPoint",Float)
+Variable.UDT.uOcc.Define("FGStyle",Long)
+Variable.UDT.uOcc.Define("LunchIn",String)
+Variable.UDT.uOcc.Define("LunchOut",String)
+Variable.uGlobal.uOcc.Declare("uOcc")
+Variable.Global.iKey.Declare(Long,0)
+Variable.UDT.uGroup.Define("Group",String,BAL_GROUP)
+Variable.uGlobal.uGroup.Declare("uGroup")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Coded by: MLA
+'Project Start Date: 2/27/2011
+'Notes:
+
+V.Local.dDate.Declare(Date)
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass,7200)
+'Setting date pickers to pevious day
+F.Intrinsic.Date.DateAdd("D",-1,V.Ambient.Date,V.Local.dDate)
+Gui.F_EmpOcc.dtpStart.Value(V.Local.dDate)
+Gui.F_EmpOcc.dtpStop.Value(V.Local.dDate)
+'Populating selection dropdown
+Gui.F_EmpOcc.ddlSelect.AddItem("Employee",0)
+Gui.F_EmpOcc.ddlSelect.AddItem("Department",1)
+Gui.F_EmpOcc.ddlSelect.AddItem("Balancing Group",2)
+Gui.F_EmpOcc.ddlSelect.Text("Employee")
+'Pass selection clicked as though employee was selected from dropdown
+F.Intrinsic.Control.CallSub(Ddlselect_click)
+Gui.F_EmpOcc..Show
+
+Program.Sub.Main.End
+
+program.sub.f_empocc_unload.start
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+program.sub.f_empocc_unload.end
+
+program.sub.cmdempendbrows_click.start
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sWidths.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("cmdEmpEndBrows_Err")
+F.Intrinsic.Control.ClearErrors
+
+'Ending employee browser
+V.Local.sSql.Set("Select EMPLOYEE, NAME from V_EMPLOYEE_MSTR ORDER BY EMPLOYEE")
+V.Local.sTitles.Set("Employee ID*!*Name")
+V.Local.sWidths.Set("2500*!*4700")
+
+F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+F.Intrinsic.String.Split(V.Local.sWidths,"*!*",V.Local.sWidths)
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Select Ending Employee","con",V.Local.sSql,V.Local.sTitles,V.Local.sWidths,5000,8000,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.F_EmpOcc.txtEnd.Text(V.Local.sRet.Trim)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdEmpEndBrows_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdempendbrows_click.end
+
+program.sub.txtempbeg_lostfocus.start
+Gui.F_EmpOcc.txtEnd.Text(V.Screen.F_EmpOcc!txtBeg.Text)
+
+program.sub.txtempbeg_lostfocus.end
+
+program.sub.chkempall_click.start
+V.Local.sError.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("chkEmpAll_Err")
+F.Intrinsic.Control.ClearErrors
+
+'Disabling or enabling screen selections based on All Employees being checked or not
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!chkAll.Value,=,1)
+	Gui.F_EmpOcc.txtBeg.Enabled(False)
+	Gui.F_EmpOcc.txtEnd.Enabled(False)
+	Gui.F_EmpOcc.txtBeg.Text("")
+	Gui.F_EmpOcc.txtEnd.Text("")
+	Gui.F_EmpOcc.cmdBegBrows.Enabled(False)
+	Gui.F_EmpOcc.cmdEndBrows.Enabled(False)
+	Gui.F_EmpOcc.cmdAdd.Enabled(False)
+	Gui.F_EmpOcc.cmdClear.Enabled(False)
+	Gui.F_EmpOcc.cmdDelete.Enabled(False)
+	Gui.F_EmpOcc.lvw.Enabled(False)
+F.Intrinsic.Control.Else
+	Gui.F_EmpOcc.txtBeg.Enabled(True)
+	Gui.F_EmpOcc.txtEnd.Enabled(True)
+	Gui.F_EmpOcc.cmdBegBrows.Enabled(True)
+	Gui.F_EmpOcc.cmdEndBrows.Enabled(True)
+	Gui.F_EmpOcc.cmdAdd.Enabled(True)
+	Gui.F_EmpOcc.cmdClear.Enabled(True)
+	Gui.F_EmpOcc.cmdClear.Enabled(True)
+	Gui.F_EmpOcc.lvw.Enabled(True)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("chkEmpAll_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.chkempall_click.end
+
+program.sub.cmddeptendbrows_click.start
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sWidths.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("cmdDeptEndBrows_Err")
+F.Intrinsic.Control.ClearErrors
+
+'Ending department browser
+V.Local.sSql.Set("Select DEPT_ID, DEPT_NAME from V_DEPARTMENTS ORDER BY DEPT_ID")
+V.Local.sTitles.Set("Dept ID*!*Name")
+V.Local.sWidths.Set("2500*!*4700")
+
+F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+F.Intrinsic.String.Split(V.Local.sWidths,"*!*",V.Local.sWidths)
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Selet Ending Deptartment","con",V.Local.sSql,V.Local.sTitles,V.Local.sWidths,5000,8000,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.F_EmpOcc.txtDeptEnd.Text(V.Local.sRet.Trim)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdDeptEndBrows_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmddeptendbrows_click.end
+
+program.sub.cmdok_click.start
+V.Local.sError.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("cmdOk_Err")
+F.Intrinsic.Control.ClearErrors
+
+'Checking for valid screen selections
+F.Intrinsic.Control.CallSub(Chkopt)
+'If Screen selections are valid, begin searching for occurences
+F.Intrinsic.Control.If(V.Global.bChkOpt,=,True)
+	Gui.F_EmpOcc..Visible(False)
+	F.Intrinsic.Control.CallSub(Loadudt)
+	F.Intrinsic.Control.CallSub(Occudt)
+	F.Intrinsic.UI.CloseWaitDialog
+	F.Intrinsic.Control.CallSub(Gridtitle)
+	F.Intrinsic.Control.CallSub(Gridstyle)
+	F.Intrinsic.Control.CallSub(Gridload)
+	Gui.F_EmpOccRev..Show
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdOk_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdok_click.end
+
+Program.Sub.ChkOpt.Start
+V.Local.sError.Declare(String)
+V.Local.dStart.Declare(Date)
+V.Local.dStop.Declare(Date)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("ChkOpt_Err")
+F.Intrinsic.Control.ClearErrors
+
+'Checking to see valid screen selections have been made before allowing program to continue to process
+V.Global.bChkOpt.Set(True)
+V.Local.dStart.Set(V.Screen.F_EmpOcc!dtpStart.Value)
+V.Local.dStop.Set(V.Screen.F_EmpOcc!dtpStop.Value)
+F.Intrinsic.Control.If(V.Local.dStart,>,V.Local.dStop)
+	F.Intrinsic.UI.Msgbox("Please select a valid date range","Invalid Date Range")
+	V.Global.bChkOpt.Set(False)
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!chkAll.Value,<>,1)
+	Gui.F_EmpOcc.lvw.RetrieveAllListItems(V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,=,"***NORETURN***")
+		F.Intrinsic.Control.SelectCase(V.Screen.F_EmpOcc!ddlSelect.Text)
+			F.Intrinsic.Control.Case("Employee")
+				F.Intrinsic.UI.Msgbox("Please select a valid employee range","Invalid Employee Range")
+			F.Intrinsic.Control.Case("Department")
+				F.Intrinsic.UI.Msgbox("Please select a valid department range","Invalid Department Range")
+			F.Intrinsic.Control.CaseElse
+				F.Intrinsic.UI.Msgbox("Please select a valid balancing group range","Invalid Balancing Group Range")
+		F.Intrinsic.Control.EndSelect
+		V.Global.bChkOpt.Set(False)
+	F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("ChkOpt_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.ChkOpt.End
+
+Program.Sub.LoadUDT.Start
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.dStart.Declare(Date)
+V.Local.dStop.Declare(Date)
+V.Local.i.Declare(Long)
+V.Local.iOrd.Declare(Long)
+V.Local.sEmpList.Declare(String)
+V.Local.sEmp.Declare(String)
+V.Local.sDeptList.Declare(String)
+V.Local.sDept.Declare(String)
+V.Local.sGroupList.Declare(String)
+V.Local.sGroup.Declare(String)
+V.Local.iUB.Declare(Long)
+V.Local.sLastEmp.Declare(String)
+V.Local.dLastDate.Declare(Date)
+V.Local.dLunchOut.Declare(Date)
+V.Local.iMinutes.Declare(Long)
+
+F.Intrinsic.Control.SetErrorHandler("LoadUDT_Err")
+F.Intrinsic.Control.ClearErrors
+
+'Loding UDT with time and attendance records
+V.uGlobal.uTA.Redim(-1,-1)
+V.Local.sLastEmp.Set(-1)
+V.Local.iUB.Set(-1)
+F.Intrinsic.Date.DateSerial(1980,1,1,V.Local.dLastDate)
+F.Intrinsic.UI.InvokeWaitDialog("Loading time and attendance records.","Loading")
+V.Local.dStart.Set(V.Screen.F_EmpOcc!dtpStart.Value)
+V.Local.dStop.Set(V.Screen.F_EmpOcc!dtpStop.Value)
+
+F.Intrinsic.String.Concat("Select EMPLOYEE, CHARGE_DATE, DATE_IN, TIME_IN, DATE_OUT, TIME_OUT, NAME, DEPT, SHIFT, REC_TYPE, REC_GROUP, HOURS_HH, HOURS_MM, concat(REC_TYPE,EXCUSED) as Exclusion from V_TIME_ATTENDANCE where CHARGE_DATE between '",V.Local.dStart.PervasiveDate,"' and '",V.Local.dStop.PervasiveDate,"' and Exclusion <> 'AY' ORDER BY EMPLOYEE, CHARGE_DATE, DATE_IN,TIME_IN",V.Local.sSql)
+'F.Intrinsic.String.Concat("Select EMPLOYEE, CHARGE_DATE, DATE_IN, TIME_IN, DATE_OUT, TIME_OUT, NAME, DEPT, SHIFT, REC_TYPE, REC_GROUP, HOURS_HH, HOURS_MM, concat(REC_TYPE,EXCUSED) as Exclusion from V_TIME_ATTENDANCE where CHARGE_DATE between '",V.Local.dStart.PervasiveDate,"' and '",V.Local.dStop.PervasiveDate,"' and Exclusion <> 'AY' and EMPLOYEE = '00161' ORDER BY EMPLOYEE, DATE_IN,TIME_IN",V.Local.sSql)
+F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+	F.Intrinsic.UI.Msgbox("No time and attendance records found for date range selected!","No Records Found")
+	F.ODBC.con!rst.Close
+	F.Intrinsic.Control.CallSub(F_empocc_unload)
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.DoUntil(V.ODBC.con!rst.EOF,=,True)
+		F.Intrinsic.Control.If(V.Local.sLastEmp,=,V.ODBC.con!rst.FieldValTrim!EMPLOYEE)
+			F.Intrinsic.Control.If(V.Local.dLastDate,=,V.ODBC.con!rst.FieldVal!CHARGE_DATE)
+				V.uGlobal.uTA(V.Local.iUB)!DateOut.Set(V.ODBC.con!rst.FieldVal!DATE_OUT)
+				V.uGlobal.uTA(V.Local.iUB)!TimeOut.Set(V.ODBC.con!rst.FieldVal!TIME_OUT)
+				V.uGlobal.uTA(V.Local.iUB)!LunchOut.Set(V.Local.dLunchOut)
+				V.uGlobal.uTA(V.Local.iUB)!LunchIn.Set(V.ODBC.con!rst.FieldVal!TIME_IN)
+				V.uGlobal.uTA(V.Local.iUB)!Lunch.Set(True)
+				F.Intrinsic.Math.Add(V.uGlobal.uTA(V.Local.iUB)!Hours,V.ODBC.con!rst.FieldValLong!HOURS_HH,V.uGlobal.uTA(V.Local.iUB)!Hours)
+				F.Intrinsic.Math.Add(V.uGlobal.uTA(V.Local.iUB)!Minutes,V.ODBC.con!rst.FieldValLong!HOURS_MM,V.Local.iMinutes)
+				F.Intrinsic.Control.If(V.Local.iMinutes,>,60)
+					F.Intrinsic.Math.Add(V.uGlobal.uTA(V.Local.iUB)!Hours,1,V.uGlobal.uTA(V.Local.iUB)!Hours)
+					F.Intrinsic.Math.Sub(V.Local.iMinutes,60,V.Local.iMinutes)
+					V.uGlobal.uTA(V.Local.iUB)!Minutes.Set(V.Local.iMinutes)
+				F.Intrinsic.Control.EndIf
+				V.Local.dLastDate.Set(V.ODBC.con!rst.FieldVal!CHARGE_DATE)
+				V.Local.sLastEmp.Set(V.ODBC.con!rst.FieldValTrim!EMPLOYEE)
+				V.Local.dLunchOut.Set(V.ODBC.con!rst.FieldVal!TIME_OUT)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Control.If(V.uGlobal.uTA.UBound,=,-1)
+					V.uGlobal.uTA.Redim(0,0)
+				F.Intrinsic.Control.EndIf
+				F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+				V.uGlobal.uTA.RedimPreserve(V.uGlobal.uTA.LBound,V.Local.iUB)
+				V.uGlobal.uTA(V.Local.iUB)!Employee.Set(V.ODBC.con!rst.FieldValTrim!EMPLOYEE)
+				V.uGlobal.uTA(V.Local.iUB)!Name.Set(V.ODBC.con!rst.FieldValTrim!NAME)
+				V.uGlobal.uTA(V.Local.iUB)!DateIn.Set(V.ODBC.con!rst.FieldVal!DATE_IN)
+				V.uGlobal.uTA(V.Local.iUB)!DateOut.Set(V.ODBC.con!rst.FieldVal!DATE_OUT)
+				V.uGlobal.uTA(V.Local.iUB)!TimeIn.Set(V.ODBC.con!rst.FieldVal!TIME_IN)
+				V.uGlobal.uTA(V.Local.iUB)!TimeOut.Set(V.ODBC.con!rst.FieldVal!TIME_OUT)
+				V.uGlobal.uTA(V.Local.iUB)!Dept.Set(V.ODBC.con!rst.FieldValTrim!DEPT)
+				V.uGlobal.uTA(V.Local.iUB)!Shift.Set(V.ODBC.con!rst.FieldValTrim!SHIFT)
+				V.uGlobal.uTA(V.Local.iUB)!BalGroup.Set(V.ODBC.con!rst.FieldValTrim!REC_GROUP)
+				V.uGlobal.uTA(V.Local.iUB)!RecType.Set(V.ODBC.con!rst.FieldValTrim!REC_TYPE)
+				V.uGlobal.uTA(V.Local.iUB)!Hours.Set(V.ODBC.con!rst.FieldValLong!HOURS_HH)
+				V.uGlobal.uTA(V.Local.iUB)!Minutes.Set(V.ODBC.con!rst.FieldValLong!HOURS_MM)
+				V.uGlobal.uTA(V.Local.iUB)!Lunch.Set(False)
+				V.Local.dLastDate.Set(V.ODBC.con!rst.FieldVal!CHARGE_DATE)
+				V.Local.sLastEmp.Set(V.ODBC.con!rst.FieldValTrim!EMPLOYEE)
+				V.Local.dLunchOut.Set(V.ODBC.con!rst.FieldVal!TIME_OUT)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.If(V.uGlobal.uTA.UBound,=,-1)
+				V.uGlobal.uTA.Redim(0,0)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+			V.uGlobal.uTA.RedimPreserve(V.uGlobal.uTA.LBound,V.Local.iUB)
+			V.uGlobal.uTA(V.Local.iUB)!Employee.Set(V.ODBC.con!rst.FieldValTrim!EMPLOYEE)
+			V.uGlobal.uTA(V.Local.iUB)!Name.Set(V.ODBC.con!rst.FieldValTrim!NAME)
+			V.uGlobal.uTA(V.Local.iUB)!DateIn.Set(V.ODBC.con!rst.FieldVal!DATE_IN)
+			V.uGlobal.uTA(V.Local.iUB)!DateOut.Set(V.ODBC.con!rst.FieldVal!DATE_OUT)
+			V.uGlobal.uTA(V.Local.iUB)!TimeIn.Set(V.ODBC.con!rst.FieldVal!TIME_IN)
+			V.uGlobal.uTA(V.Local.iUB)!TimeOut.Set(V.ODBC.con!rst.FieldVal!TIME_OUT)
+			V.uGlobal.uTA(V.Local.iUB)!Dept.Set(V.ODBC.con!rst.FieldValTrim!DEPT)
+			V.uGlobal.uTA(V.Local.iUB)!Shift.Set(V.ODBC.con!rst.FieldValTrim!SHIFT)
+			V.uGlobal.uTA(V.Local.iUB)!BalGroup.Set(V.ODBC.con!rst.FieldValTrim!REC_GROUP)
+			V.uGlobal.uTA(V.Local.iUB)!RecType.Set(V.ODBC.con!rst.FieldValTrim!REC_TYPE)
+			V.uGlobal.uTA(V.Local.iUB)!Hours.Set(V.ODBC.con!rst.FieldValLong!HOURS_HH)
+			V.uGlobal.uTA(V.Local.iUB)!Minutes.Set(V.ODBC.con!rst.FieldValLong!HOURS_MM)
+			V.uGlobal.uTA(V.Local.iUB)!Lunch.Set(False)
+			V.Local.dLastDate.Set(V.ODBC.con!rst.FieldVal!CHARGE_DATE)
+			V.Local.sLastEmp.Set(V.ODBC.con!rst.FieldValTrim!EMPLOYEE)
+			V.Local.dLunchOut.Set(V.ODBC.con!rst.FieldVal!TIME_OUT)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.con!rst.MoveNext
+	F.Intrinsic.Control.Loop
+	F.ODBC.con!rst.Close
+F.Intrinsic.Control.EndIf
+
+'Loading UDT with employees selected
+
+'Check be sure no blank was added
+
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Employee")
+	F.Intrinsic.Control.If(V.Screen.F_EmpOcc!chkAll.Value,=,1)
+		V.Local.sSql.Set("Select EMPLOYEE from V_EMPLOYEE_MSTR")
+		F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+		F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,<>,True)
+			F.Intrinsic.Variable.LoadUDTFromRecordset("con","rst","uGlobal.uEmp",False)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.con!rst.Close
+	F.Intrinsic.Control.Else
+		Gui.F_EmpOcc.lvw.RetrieveAllListItems(V.Local.sEmpList)
+		F.Intrinsic.String.Split(V.Local.sEmpList,"*!*",V.Local.sEmpList)
+		F.Intrinsic.Control.For(V.Local.i,V.Local.sEmpList.LBound,V.Local.sEmpList.UBound,1)
+			Gui.F_EmpOcc.lvw.ListItemKeyToOrdinal(V.Local.sEmpList(V.Local.i),V.Local.iOrd)
+			V.Local.sEmp.Set(V.Screen.F_EmpOcc!lvw.ListItemTextExtended(V.Local.iOrd))
+			F.Intrinsic.String.Split(V.Local.sEmp,"*!*",V.Local.sEmp)
+			F.Intrinsic.String.Concat("Select EMPLOYEE from V_EMPLOYEE_MSTR where EMPLOYEE between '",V.Local.sEmp(0),"' and '",V.Local.sEmp(1),"'",V.Local.sSql)
+			F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+			F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,<>,True)
+				F.Intrinsic.Variable.LoadUDTFromRecordset("con","rst","uGlobal.uEmp",True)
+			F.Intrinsic.Control.EndIf
+			F.ODBC.con!rst.Close
+		F.Intrinsic.Control.Next(V.Local.i)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Department")
+'Loading UDt with departments selected
+	F.Intrinsic.Control.If(V.Screen.F_EmpOcc!chkAll.Value,=,1)
+		V.Local.sSql.Set("Select DEPT_ID from V_DEPARTMENTS")
+		F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+		F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,<>,True)
+			F.Intrinsic.Variable.LoadUDTFromRecordset("con","rst","uGlobal.uDept",False)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.con!rst.Close
+	F.Intrinsic.Control.Else
+		Gui.F_EmpOcc.lvw.RetrieveAllListItems(V.Local.sDeptList)
+		F.Intrinsic.String.Split(V.Local.sDeptList,"*!*",V.Local.sDeptList)
+		F.Intrinsic.Control.For(V.Local.i,V.Local.sDeptList.LBound,V.Local.sDeptList.UBound,1)
+			Gui.F_EmpOcc.lvw.ListItemKeyToOrdinal(V.Local.sDeptList(V.Local.i),V.Local.iOrd)
+			V.Local.sDept.Set(V.Screen.F_EmpOcc!lvw.ListItemTextExtended(V.Local.iOrd))
+			F.Intrinsic.String.Split(V.Local.sDept,"*!*",V.Local.sDept)
+			F.Intrinsic.String.Concat("Select DEPT_ID from V_DEPARTMENTS where DEPT_ID between '",V.Local.sDept(0),"' and '",V.Local.sDept(1),"'",V.Local.sSql)
+			F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+			F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,<>,True)
+				F.Intrinsic.Variable.LoadUDTFromRecordset("con","rst","uGlobal.uDept",True)
+			F.Intrinsic.Control.EndIf
+			F.ODBC.con!rst.Close
+		F.Intrinsic.Control.Next(V.Local.i)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Balancing Group")
+'Loading UDt with balancing group selected
+	F.Intrinsic.Control.If(V.Screen.F_EmpOcc!chkAll.Value,=,1)
+		V.Local.sSql.Set("Select BAL_GROUP from V_BALANCING_GROUP")
+		F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+		F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,<>,True)
+			F.Intrinsic.Variable.LoadUDTFromRecordset("con","rst","uGlobal.uGroup",False)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.con!rst.Close
+	F.Intrinsic.Control.Else
+		Gui.F_EmpOcc.lvw.RetrieveAllListItems(V.Local.sGroupList)
+		F.Intrinsic.String.Split(V.Local.sGroupList,"*!*",V.Local.sGroupList)
+		F.Intrinsic.Control.For(V.Local.i,V.Local.sGroupList.LBound,V.Local.sGroupList.UBound,1)
+			Gui.F_EmpOcc.lvw.ListItemKeyToOrdinal(V.Local.sGroupList(V.Local.i),V.Local.iOrd)
+			V.Local.sGroup.Set(V.Screen.F_EmpOcc!lvw.ListItemTextExtended(V.Local.iOrd))
+			F.Intrinsic.String.Split(V.Local.sGroup,"*!*",V.Local.sGroup)
+			F.Intrinsic.String.Concat("Select BAL_GROUP from V_BALANCING_GROUP where BAL_GROUP between '",V.Local.sGroup(0).Trim,"' and '",V.Local.sGroup(1).Trim,"'",V.Local.sSql)
+			F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+			F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,<>,True)
+				F.Intrinsic.Variable.LoadUDTFromRecordset("con","rst","uGlobal.uGroup",True)
+			F.Intrinsic.Control.EndIf
+			F.ODBC.con!rst.Close
+		F.Intrinsic.Control.Next(V.Local.i)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("LoadUDT_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.LoadUDT.End
+
+Program.Sub.OccUDT.Start
+V.Local.sError.Declare(String)
+V.Local.i.Declare(Long)
+V.Local.sRet.Declare(String)
+V.Local.bChk.Declare(Boolean)
+V.Local.dDateIn.Declare(Date)
+V.Local.dDateOut.Declare(Date)
+V.Local.dTimeIn.Declare(Date)
+V.Local.dTimeOut.Declare(Date)
+V.Local.sSql.Declare(String)
+V.Local.sEmp.Declare(String)
+V.Local.sName.Declare(String)
+V.Local.iOccID.Declare(Long)
+V.Local.sOccName.Declare(String)
+V.Local.fOccPoint.Declare(Float)
+V.Local.iShift.Declare(Long)
+V.Local.sDept.Declare(String)
+V.Local.sBalGroup.Declare(String)
+V.Local.dShiftIn.Declare(Date)
+V.Local.dShiftOut.Declare(Date)
+V.Local.fShiftHrs.Declare(Float)
+V.Local.fEmpHrs.Declare(Float)
+V.Local.iDay.Declare(Long)
+V.Local.iMin.Declare(Long)
+V.Local.iMinInBefore.Declare(Long)
+V.Local.iMinInAfter.Declare(Long)
+V.Local.iMinOutBefore.Declare(Long)
+V.Local.iMinOutAfter.Declare(Long)
+V.Local.sHrs.Declare(String)
+V.Local.dLunchIn.Declare(Date)
+V.Local.dLunchOut.Declare(Date)
+V.Local.dDateLunchIn.Declare(Date)
+V.Local.dDateLunchOut.Declare(Date)
+V.Local.sNull.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("OccUDT_Err")
+F.Intrinsic.Control.ClearErrors
+
+'Checking to see if employee or department was selected, and then seeing if the corresponding UDT is empty
+V.uGlobal.uOcc.Redim(-1,-1)
+F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uTA.LBound,V.uGlobal.uTA.UBound,1)
+	F.Intrinsic.UI.ChangeWaitStatus("Finding Occurrences",V.Local.i,V.uGlobal.uTA.LBound,V.uGlobal.uTA.UBound)
+	V.Local.bChk.Set(True)
+	F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Employee")
+		F.Intrinsic.Variable.UDTSeek(V.uGlobal.uEmp!Employee,V.uGlobal.uTA(V.Local.i)!Employee,0,V.Local.sRet)
+		F.Intrinsic.Control.If(V.Local.sRet,=,"")
+			V.Local.bChk.Set(False)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Department")
+		F.Intrinsic.Variable.UDTSeek(V.uGlobal.uDept!Dept,V.uGlobal.uTA(V.Local.i)!Dept,0,V.Local.sRet)
+		F.Intrinsic.Control.If(V.Local.sRet,=,"")
+			V.Local.bChk.Set(False)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Balancing Group")
+		F.Intrinsic.Variable.UDTSeek(V.uGlobal.uGroup!Group,V.uGlobal.uTA(V.Local.i)!BalGroup,0,V.Local.sRet)
+		F.Intrinsic.Control.If(V.Local.sRet,=,"")
+			V.Local.bChk.Set(False)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.Local.bChk,=,True)
+'First checking for absences
+		V.Local.dDateIn.Set(V.uGlobal.uTA(V.Local.i)!DateIn)
+		V.Local.dDateOut.Set(V.uGlobal.uTA(V.Local.i)!DateOut)
+		F.Intrinsic.Control.If(V.uGlobal.uTA(V.Local.i)!RecType,=,"A")
+			V.Local.iOccID.Set(1)
+			V.Local.sOccName.Set("Absent")
+			F.Intrinsic.String.Concat("Select * from ATG_3837_Emp_PntsOcc where Employee = '",V.uGlobal.uTA(V.Local.i)!Employee,"' and Occ_Date = '",V.Local.dDateIn.PervasiveDate,"' and Occ_ID = 1",V.Local.sSql)
+			F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+			F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+				V.Local.sEmp.Set(V.uGlobal.uTA(V.Local.i)!Employee)
+				V.Local.sName.Set(V.uGlobal.uTA(V.Local.i)!Name)
+				F.Intrinsic.Date.TimeComp(V.uGlobal.uTA(V.Local.i)!TimeIn,V.Local.dTimeIn)
+				F.Intrinsic.Date.CombineDateTime(V.Local.dDateIn,V.Local.dTimeIn,V.Local.dDateIn)
+				F.Intrinsic.Date.TimeComp(V.uGlobal.uTA(V.Local.i)!TimeOut,V.Local.dTimeOut)
+				F.Intrinsic.Date.CombineDateTime(V.Local.dDateOut,V.Local.dTimeOut,V.Local.dDateOut)
+				V.Local.sSql.Set("Select Occ_Point from ATG_3837_Emp_PntsMnt where Occ_ID = 1")
+				F.ODBC.Connection!con.OpenRecordsetRO("rstPoint",V.Local.sSql)
+				F.Intrinsic.Control.If(V.ODBC.con!rstPoint.EOF,=,True)
+					F.Intrinsic.UI.Msgbox("Point value can't be found for ID:1 Absent.","No Point Value")
+					F.ODBC.con!rstPoint.Close
+					V.Local.fOccPoint.Set(0)
+				F.Intrinsic.Control.Else
+					V.Local.fOccPoint.Set(V.ODBC.con!rstPoint.FieldValFloat!Occ_Point)
+					F.ODBC.con!rstPoint.Close
+				F.Intrinsic.Control.EndIf
+				V.Local.iShift.Set(V.uGlobal.uTA(V.Local.i)!Shift)
+				V.Local.sDept.Set(V.uGlobal.uTA(V.Local.i)!Dept)
+				V.Local.sBalGroup.Set(V.uGlobal.uTA(V.Local.i)!BalGroup)
+			F.Intrinsic.Control.Else
+				V.Local.sEmp.Set(V.ODBC.con!rst.FieldValTrim!Employee)
+				V.Local.sName.Set(V.ODBC.con!rst.FieldValTrim!Name)
+				V.Local.dDateIn.Set(V.ODBC.con!rst.FieldVal!Date_In)
+				V.Local.dDateOut.Set(V.ODBC.con!rst.FieldVal!Date_Out)
+				V.Local.fOccPoint.Set(V.ODBC.con!rst.FieldValFloat!Occ_Point)
+				V.Local.iShift.Set(V.ODBC.con!rst.FieldValLong!Shift)
+				V.Local.sDept.Set(V.ODBC.con!rst.FieldValTrim!Dept)
+				V.Local.sBalGroup.Set(V.ODBC.con!rst.FieldValTrim!Bal_Group)
+			F.Intrinsic.Control.EndIf
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.uGlobal.uTA(V.Local.i)!LunchIn,"LunchOut",V.uGlobal.uTA(V.Local.i)!LunchOut,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+			F.Intrinsic.Debug.SetLA("Check to see if record was a absentee records, if so added to UDT for grid")
+		F.Intrinsic.Control.Else
+'Grabbing the appropriate shift time for employee
+			F.Intrinsic.String.Concat("Select * from V_LUNCH_SHIFT where SHIFT = '",V.uGlobal.uTA(V.Local.i)!Shift,"' and DEPT = '",V.uGlobal.uTA(V.Local.i)!Dept,"' and SHIFT_GROUP = '",V.uGlobal.uTA(V.Local.i)!BalGroup,"'",V.Local.sSql)
+			F.ODBC.Connection!con.OpenRecordsetRO("rstShift",V.Local.sSql)
+			F.Intrinsic.Control.If(V.ODBC.con!rstShift.EOF,=,True)
+				F.Intrinsic.String.Concat("Invalid shift of ",V.uGlobal.uTA(V.Local.i)!Shift," and department of ",V.uGlobal.uTA(V.Local.i)!Dept,"and balancing group of",V.uGlobal.uTA(V.Local.i)!BalGroup," found for employee ",V.uGlobal.uTA(v.Local.i)!Employee,"!",V.Local.sError)
+				F.Intrinsic.UI.Msgbox(V.Local.sError,"Invalid Shift/Dept Record")
+				F.ODBC.con!rstShift.Close
+			F.Intrinsic.Control.Else
+
+'Getting shift rules for start and stop times
+				F.Intrinsic.Date.Weekday(V.Local.dDateIn,V.Local.iDay)
+				V.Local.iMinInBefore.Set(V.ODBC.con!rstShift.FieldValLong!START_MIN_BEFORE)
+				V.Local.iMinInAfter.Set(V.ODBC.con!rstShift.FieldValLong!START_MIN_AFTER)
+				V.Local.iMinOutBefore.Set(V.ODBC.con!rstShift.FieldValLong!STOP_MIN_BEFORE)
+				V.Local.iMinOutAfter.Set(V.ODBC.con!rstShift.FieldValLong!STOP_MIN_AFTER)
+				F.Intrinsic.Math.Mult(V.Local.iMinInAfter,-1,V.Local.iMinInAfter)
+				F.Intrinsic.Math.Mult(V.Local.iMinOutAfter,-1,V.Local.iMinOutAfter)
+				F.Intrinsic.Control.SelectCase(V.Local.iDay)
+'Based on day of week getting appropriate start and stop times
+				F.Intrinsic.Control.Case(2)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!START_MON,V.Local.dShiftIn)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!STOP_MON,V.Local.dShiftOut)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!LUN_STOP,V.Local.dLunchOut)
+					V.Local.sHrs.Set(V.ODBC.con!rstShift.FieldValTrim!HRS_MON)
+					F.Intrinsic.String.Replace(V.Local.sHrs,":",".",V.Local.sHrs)
+					V.Local.fShiftHrs.Set(V.Local.sHrs.Float)
+				F.Intrinsic.Control.Case(3)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!START_TUE,V.Local.dShiftIn)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!STOP_TUE,V.Local.dShiftOut)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!LUN_STOP,V.Local.dLunchOut)
+					V.Local.sHrs.Set(V.ODBC.con!rstShift.FieldValTrim!HRS_TUE)
+					F.Intrinsic.String.Replace(V.Local.sHrs,":",".",V.Local.sHrs)
+					V.Local.fShiftHrs.Set(V.Local.sHrs.Float)
+				F.Intrinsic.Control.Case(4)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!START_WED,V.Local.dShiftIn)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!STOP_WED,V.Local.dShiftOut)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!LUN_STOP,V.Local.dLunchOut)
+					V.Local.sHrs.Set(V.ODBC.con!rstShift.FieldValTrim!HRS_WED)
+					F.Intrinsic.String.Replace(V.Local.sHrs,":",".",V.Local.sHrs)
+					V.Local.fShiftHrs.Set(V.Local.sHrs.Float)
+				F.Intrinsic.Control.Case(5)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!START_THR,V.Local.dShiftIn)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!STOP_THR,V.Local.dShiftOut)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!LUN_STOP,V.Local.dLunchOut)
+					V.Local.sHrs.Set(V.ODBC.con!rstShift.FieldValTrim!HRS_THR)
+					F.Intrinsic.String.Replace(V.Local.sHrs,":",".",V.Local.sHrs)
+					V.Local.fShiftHrs.Set(V.Local.sHrs.Float)
+				F.Intrinsic.Control.Case(6)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!START_FRI,V.Local.dShiftIn)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!STOP_FRI,V.Local.dShiftOut)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!LUN_STOP,V.Local.dLunchOut)
+					V.Local.sHrs.Set(V.ODBC.con!rstShift.FieldValTrim!HRS_FRI)
+					F.Intrinsic.String.Replace(V.Local.sHrs,":",".",V.Local.sHrs)
+					V.Local.fShiftHrs.Set(V.Local.sHrs.Float)
+				F.Intrinsic.Control.Case(7)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!START_SAT,V.Local.dShiftIn)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!STOP_SAT,V.Local.dShiftOut)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!LUN_STOP,V.Local.dLunchOut)
+					V.Local.sHrs.Set(V.ODBC.con!rstShift.FieldValTrim!HRS_SAT)
+					F.Intrinsic.String.Replace(V.Local.sHrs,":",".",V.Local.sHrs)
+					V.Local.fShiftHrs.Set(V.Local.sHrs.Float)
+				F.Intrinsic.Control.Case(1)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!START_SUN,V.Local.dShiftIn)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!STOP_SUN,V.Local.dShiftOut)
+					F.Intrinsic.Date.TimeComp(V.ODBC.con!rstShift.FieldVal!LUN_STOP,V.Local.dLunchOut)
+					V.Local.sHrs.Set(V.ODBC.con!rstShift.FieldValTrim!HRS_SUN)
+					F.Intrinsic.String.Replace(V.Local.sHrs,":",".",V.Local.sHrs)
+					V.Local.fShiftHrs.Set(V.Local.sHrs.Float)
+				F.Intrinsic.Control.EndSelect
+				F.ODBC.con!rstShift.Close
+				F.Intrinsic.Debug.SetLA("Checked to see what day of the week was the record and grabbed the shift time information for that day")
+
+'Formatting date/time for start and stop times
+				F.Intrinsic.Date.CombineDateTime(V.uGlobal.uTA(V.Local.i)!DateIn.DateComp,V.Local.dShiftIn.TimeComp,V.Local.dShiftIn)
+				F.Intrinsic.Date.CombineDateTime(V.uGlobal.uTA(V.Local.i)!DateOut.DateComp,V.Local.dShiftOut.TimeComp,V.Local.dShiftOut)
+				F.Intrinsic.Date.TimeComp(V.uGlobal.uTA(V.Local.i)!TimeIn,V.Local.dTimeIn)
+				F.Intrinsic.Date.CombineDateTime(V.Local.dDateIn.DateComp,V.Local.dTimeIn.TimeComp,V.Local.dDateIn)
+				F.Intrinsic.Date.TimeComp(V.uGlobal.uTA(V.Local.i)!TimeOut,V.Local.dTimeOut)
+				F.Intrinsic.Date.CombineDateTime(V.Local.dDateOut.DateComp,V.Local.dTimeOut.TimeComp,V.Local.dDateOut)
+				'Getting Lunch Times
+				F.Intrinsic.Date.CombineDateTime(V.uGlobal.uTA(V.Local.i)!DateIn.DateComp,V.Local.dLunchOut.TimeComp,V.Local.dLunchOut)
+				F.Intrinsic.Control.If(V.uGlobal.uTA(V.Local.i)!Lunch,=,True)
+					'F.Intrinsic.Date.TimeSerial(11,0,0,V.Local.dLunchOut)
+					'F.Intrinsic.Date.TimeSerial(12,0,0,V.Local.dLunchIn)
+					'F.Intrinsic.Date.CombineDateTime(V.uGlobal.uTA(V.Local.i)!DateIn.DateComp,V.Local.dLunchOut.TimeComp,V.Local.dLunchOut)
+					'F.Intrinsic.Date.CombineDateTime(V.uGlobal.uTA(V.Local.i)!DateIn.DateComp,V.Local.dLunchIn.TimeComp,V.Local.dLunchIn)
+					F.Intrinsic.Date.CombineDateTime(V.uGlobal.uTA(V.Local.i)!DateIn.DateComp,V.uGlobal.uTA(V.Local.i)!LunchOut.TimeComp,V.Local.dDateLunchOut)
+					F.Intrinsic.Date.CombineDateTime(V.uGlobal.uTA(V.Local.i)!DateIn.DateComp,V.uGlobal.uTA(V.Local.i)!LunchIn.TimeComp,V.Local.dDateLunchIn)
+				F.Intrinsic.Control.Else
+					F.Intrinsic.Date.TimeSerial(11,0,0,V.Local.dLunchOut)
+					F.Intrinsic.Date.DateSerial(1900,1,1,V.Local.dDateLunchOut)
+					F.Intrinsic.Date.CombineDateTime(V.Local.dDateLunchOut.DateComp,V.Local.dLunchOut.TimeComp,V.Local.dDateLunchOut)
+					F.Intrinsic.Date.CombineDateTime(V.Local.dDateLunchOut.DateComp,V.Local.dLunchOut.TimeComp,V.Local.dDateLunchIn)
+				F.Intrinsic.Control.EndIf
+
+''Checking to see if employee was early and if occurence record already exists
+				F.Intrinsic.Date.DateDiff("N",V.Local.dDateIn,V.Local.dShiftIn,V.Local.iMin)
+'				F.Intrinsic.Control.If(V.Local.iMin,>,V.Local.iMinInBefore)
+'					V.Local.iOccID.Set(2)
+'					V.Local.sOccName.Set("Early")
+'					F.Intrinsic.String.Concat("Select * from ATG_Emp_Points_Occ where Employee = '",V.uGlobal.uTA(V.Local.i)!Employee,"' and Occ_Date = '",V.Local.dDateIn.PervasiveDate,"' and Occ_ID = 2",V.Local.sSql)
+'					F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+'					F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+'						V.Local.sEmp.Set(V.uGlobal.uTA(V.Local.i)!Employee)
+'						V.Local.sName.Set(V.uGlobal.uTA(V.Local.i)!Name)
+'						V.Local.sSql.Set("Select Occ_Point from ATG_Emp_Points_Maint where Occ_ID = 2")
+'						F.ODBC.Connection!con.OpenRecordsetRO("rstPoint",V.Local.sSql)
+'						F.Intrinsic.Control.If(V.ODBC.con!rstPoint.EOF,=,True)
+'							F.Intrinsic.UI.Msgbox("Point value can't be found for ID:2 Early.","No Point Value")
+'							F.ODBC.con!rstPoint.Close
+'							V.Local.fOccPoint.Set(0)
+'						F.Intrinsic.Control.Else
+'							V.Local.fOccPoint.Set(V.ODBC.con!rstPoint.FieldValFloat!Occ_Point)
+'							F.ODBC.con!rstPoint.Close
+'						F.Intrinsic.Control.EndIf
+'						V.Local.iShift.Set(V.uGlobal.uTA(V.Local.i)!Shift)
+'						V.Local.sDept.Set(V.uGlobal.uTA(V.Local.i)!Dept)
+'						V.Local.sBalGroup.Set(V.uGlobal.uTA(V.Local.i)!BalGroup)
+'					F.Intrinsic.Control.Else
+'						V.Local.sEmp.Set(V.ODBC.con!rst.FieldValTrim!Employee)
+'						V.Local.sName.Set(V.ODBC.con!rst.FieldValTrim!Name)
+'						V.Local.dDateIn.Set(V.ODBC.con!rst.FieldVal!Date_In)
+'						V.Local.dDateOut.Set(V.ODBC.con!rst.FieldVal!Date_Out)
+'						V.Local.fOccPoint.Set(V.ODBC.con!rst.FieldValFloat!Occ_Point)
+'						V.Local.iShift.Set(V.ODBC.con!rst.FieldValLong!Shift)
+'						V.Local.sDept.Set(V.ODBC.con!rst.FieldValTrim!Dept)
+'						V.Local.sBalGroup.Set(V.ODBC.con!rst.FieldValTrim!Bal_Group)
+'					F.Intrinsic.Control.EndIf
+'					F.ODBC.con!rst.Close
+'					F.Intrinsic.Control.If(V.uGlobal.uTA(V.Local.i)!Lunch,=,True)
+'						F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.Local.dDateLunchIn,"LunchOut",V.Local.dDateLunchOut,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+'					F.Intrinsic.Control.Else
+'						F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.Local.sNull,"LunchOut",V.Local.sNull,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+'					F.Intrinsic.Control.EndIf
+'				F.Intrinsic.Control.EndIf
+'				F.Intrinsic.Debug.SetLA("Check to see if employee was early, if so added to UDT for grid")
+
+'Checking to see if employee was late and if occurence already exists
+				F.Intrinsic.Control.If(V.Local.iMin,<,V.Local.iMinInAfter)
+					V.Local.iOccID.Set(3)
+					V.Local.sOccName.Set("Late")
+					F.Intrinsic.String.Concat("Select * from ATG_3837_Emp_PntsOcc where Employee = '",V.uGlobal.uTA(V.Local.i)!Employee,"' and Occ_Date = '",V.Local.dDateIn.PervasiveDate,"' and Occ_ID = 3",V.Local.sSql)
+					F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+					F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+						V.Local.sEmp.Set(V.uGlobal.uTA(V.Local.i)!Employee)
+						V.Local.sName.Set(V.uGlobal.uTA(V.Local.i)!Name)
+						V.Local.sSql.Set("Select Occ_Point from ATG_3837_Emp_PntsMnt where Occ_ID = 3")
+						F.ODBC.Connection!con.OpenRecordsetRO("rstPoint",V.Local.sSql)
+						F.Intrinsic.Control.If(V.ODBC.con!rstPoint.EOF,=,True)
+							F.Intrinsic.UI.Msgbox("Point value can't be found for ID:3 Late.","No Point Value")
+							F.ODBC.con!rstPoint.Close
+							V.Local.fOccPoint.Set(0)
+						F.Intrinsic.Control.Else
+							V.Local.fOccPoint.Set(V.ODBC.con!rstPoint.FieldValFloat!Occ_Point)
+							F.ODBC.con!rstPoint.Close
+						F.Intrinsic.Control.EndIf
+						V.Local.iShift.Set(V.uGlobal.uTA(V.Local.i)!Shift)
+						V.Local.sDept.Set(V.uGlobal.uTA(V.Local.i)!Dept)
+						V.Local.sBalGroup.Set(V.uGlobal.uTA(V.Local.i)!BalGroup)
+					F.Intrinsic.Control.Else
+						V.Local.sEmp.Set(V.ODBC.con!rst.FieldValTrim!Employee)
+						V.Local.sName.Set(V.ODBC.con!rst.FieldValTrim!Name)
+						V.Local.dDateIn.Set(V.ODBC.con!rst.FieldVal!Date_In)
+						V.Local.dDateOut.Set(V.ODBC.con!rst.FieldVal!Date_Out)
+						V.Local.fOccPoint.Set(V.ODBC.con!rst.FieldValFloat!Occ_Point)
+						V.Local.iShift.Set(V.ODBC.con!rst.FieldValLong!Shift)
+						V.Local.sDept.Set(V.ODBC.con!rst.FieldValTrim!Dept)
+						V.Local.sBalGroup.Set(V.ODBC.con!rst.FieldValTrim!Bal_Group)
+					F.Intrinsic.Control.EndIf
+					F.ODBC.con!rst.Close
+					F.Intrinsic.Control.If(V.Local.iDay,>,1)
+					F.Intrinsic.Control.AndIf(V.Local.iDay,<,7)
+						F.Intrinsic.Control.If(V.uGlobal.uTA(V.Local.i)!Lunch,=,True)
+							F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.Local.dDateLunchIn,"LunchOut",V.Local.dDateLunchOut,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+						F.Intrinsic.Control.Else
+							F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.Local.sNull,"LunchOut",V.Local.sNull,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+						F.Intrinsic.Control.EndIf
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+				F.Intrinsic.Debug.SetLA("Checked to see if employee was late, if so added to UDT for grid")
+
+'Checking to see if employee left early and if a occurence already exists
+				F.Intrinsic.Date.DateDiff("N",V.Local.dDateOut,V.Local.dShiftOut,V.Local.iMin)
+				F.Intrinsic.Control.If(V.Local.iMin,>,V.Local.iMinOutBefore)
+					V.Local.iOccID.Set(4)
+					V.Local.sOccName.Set("Early Out")
+					F.Intrinsic.String.Concat("Select * from ATG_3837_Emp_PntsOcc where Employee = '",V.uGlobal.uTA(V.Local.i)!Employee,"' and Occ_Date = '",V.Local.dDateIn.PervasiveDate,"' and Occ_ID = 4",V.Local.sSql)
+					F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+					F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+						V.Local.sEmp.Set(V.uGlobal.uTA(V.Local.i)!Employee)
+						V.Local.sName.Set(V.uGlobal.uTA(V.Local.i)!Name)
+						V.Local.sSql.Set("Select Occ_Point from ATG_Emp_Points_Maint where Occ_ID = 4")
+						F.ODBC.Connection!con.OpenRecordsetRO("rstPoint",V.Local.sSql)
+						F.Intrinsic.Control.If(V.ODBC.con!rstPoint.EOF,=,True)
+							F.Intrinsic.UI.Msgbox("Point value can't be found for ID:4 Early Out.","No Point Value")
+							F.ODBC.con!rstPoint.Close
+							V.Local.fOccPoint.Set(0)
+						F.Intrinsic.Control.Else
+							V.Local.fOccPoint.Set(V.ODBC.con!rstPoint.FieldValFloat!Occ_Point)
+							F.ODBC.con!rstPoint.Close
+						F.Intrinsic.Control.EndIf
+						V.Local.iShift.Set(V.uGlobal.uTA(V.Local.i)!Shift)
+						V.Local.sDept.Set(V.uGlobal.uTA(V.Local.i)!Dept)
+						V.Local.sBalGroup.Set(V.uGlobal.uTA(V.Local.i)!BalGroup)
+					F.Intrinsic.Control.Else
+						V.Local.sEmp.Set(V.ODBC.con!rst.FieldValTrim!Employee)
+						V.Local.sName.Set(V.ODBC.con!rst.FieldValTrim!Name)
+						V.Local.dDateIn.Set(V.ODBC.con!rst.FieldVal!Date_In)
+						V.Local.dDateOut.Set(V.ODBC.con!rst.FieldVal!Date_Out)
+						V.Local.fOccPoint.Set(V.ODBC.con!rst.FieldValFloat!Occ_Point)
+						V.Local.iShift.Set(V.ODBC.con!rst.FieldValLong!Shift)
+						V.Local.sDept.Set(V.ODBC.con!rst.FieldValTrim!Dept)
+						V.Local.sBalGroup.Set(V.ODBC.con!rst.FieldValTrim!Bal_Group)
+					F.Intrinsic.Control.EndIf
+					F.ODBC.con!rst.Close
+					F.Intrinsic.Control.If(V.Local.iDay,>,1)
+					F.Intrinsic.Control.AndIf(V.Local.iDay,<,7)
+						F.Intrinsic.Control.If(V.uGlobal.uTA(V.Local.i)!Lunch,=,True)
+							F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.Local.dDateLunchIn,"LunchOut",V.Local.dDateLunchOut,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+						F.Intrinsic.Control.Else
+							F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.Local.sNull,"LunchOut",V.Local.sNull,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+						F.Intrinsic.Control.EndIf
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+				F.Intrinsic.Debug.SetLA("Checked to see if employee left early, if so added to UDT for grid")
+
+''Checking to see if employee left late and if occurence already exists
+'				F.Intrinsic.Control.If(V.Local.iMin,<,V.Local.iMinOutAfter)
+'					V.Local.iOccID.Set(5)
+'					V.Local.sOccName.Set("Late Out")
+'					F.Intrinsic.String.Concat("Select * from ATG_Emp_Points_Occ where Employee = '",V.uGlobal.uTA(V.Local.i)!Employee,"' and Occ_Date = '",V.Local.dDateIn.PervasiveDate,"' and Occ_ID = 5",V.Local.sSql)
+'					F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+'					F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+'						V.Local.sEmp.Set(V.uGlobal.uTA(V.Local.i)!Employee)
+'						V.Local.sName.Set(V.uGlobal.uTA(V.Local.i)!Name)
+'						V.Local.sSql.Set("Select Occ_Point from ATG_Emp_Points_Maint where Occ_ID = 5")
+'						F.ODBC.Connection!con.OpenRecordsetRO("rstPoint",V.Local.sSql)
+'						F.Intrinsic.Control.If(V.ODBC.con!rstPoint.EOF,=,True)
+'							F.Intrinsic.UI.Msgbox("Point value can't be found for ID:5 Late Out.","No Point Value")
+'							F.ODBC.con!rstPoint.Close
+'							V.Local.fOccPoint.Set(0)
+'						F.Intrinsic.Control.Else
+'							V.Local.fOccPoint.Set(V.ODBC.con!rstPoint.FieldValFloat!Occ_Point)
+'							F.ODBC.con!rstPoint.Close
+'						F.Intrinsic.Control.EndIf
+'						V.Local.iShift.Set(V.uGlobal.uTA(V.Local.i)!Shift)
+'						V.Local.sDept.Set(V.uGlobal.uTA(V.Local.i)!Dept)
+'						V.Local.sBalGroup.Set(V.uGlobal.uTA(V.Local.i)!BalGroup)
+'					F.Intrinsic.Control.Else
+'						V.Local.sEmp.Set(V.ODBC.con!rst.FieldValTrim!Employee)
+'						V.Local.sName.Set(V.ODBC.con!rst.FieldValTrim!Name)
+'						V.Local.dDateIn.Set(V.ODBC.con!rst.FieldVal!Date_In)
+'						V.Local.dDateOut.Set(V.ODBC.con!rst.FieldVal!Date_Out)
+'						V.Local.fOccPoint.Set(V.ODBC.con!rst.FieldValFloat!Occ_Point)
+'						V.Local.iShift.Set(V.ODBC.con!rst.FieldValLong!Shift)
+'						V.Local.sDept.Set(V.ODBC.con!rst.FieldValTrim!Dept)
+'						V.Local.sBalGroup.Set(V.ODBC.con!rst.FieldValTrim!Bal_Group)
+'					F.Intrinsic.Control.EndIf
+'					F.ODBC.con!rst.Close
+'					F.Intrinsic.Control.If(V.uGlobal.uTA(V.Local.i)!Lunch,=,True)
+'						F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.Local.dDateLunchIn,"LunchOut",V.Local.dDateLunchOut,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+'					F.Intrinsic.Control.Else
+'						F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.Local.sNull,"LunchOut",V.Local.sNull,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+'					F.Intrinsic.Control.EndIf
+'				F.Intrinsic.Control.EndIf
+'				F.Intrinsic.Debug.SetLA("Checked to see if employee left late, if so added to UDT for grid")
+
+				'Checking to see if employee has occurrences for lunch and if occurence already exists
+				F.Intrinsic.Control.If(V.uGlobal.uTA(V.Local.i)!Lunch,=,True)
+'					'Checking for early lunch out
+'					F.Intrinsic.Date.DateDiff("N",V.Local.dDateLunchOut,V.Local.dLunchOut,V.Local.iMin)
+'					F.Intrinsic.Control.If(V.Local.iMin,>,0)
+'						V.Local.iOccID.Set(7)
+'						V.Local.sOccName.Set("Early Lunch Out")
+'						F.Intrinsic.String.Concat("Select * from ATG_Emp_Points_Occ where Employee = '",V.uGlobal.uTA(V.Local.i)!Employee,"' and Occ_Date = '",V.Local.dDateIn.PervasiveDate,"' and Occ_ID = 7",V.Local.sSql)
+'						F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSql)
+'						F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+'							V.Local.sEmp.Set(V.uGlobal.uTA(V.Local.i)!Employee)
+'							V.Local.sName.Set(V.uGlobal.uTA(V.Local.i)!Name)
+'							V.Local.sSql.Set("Select Occ_Point from ATG_Emp_Points_Maint where Occ_ID = 7")
+'							F.ODBC.Connection!con.OpenRecordsetRO("rstPoint",V.Local.sSql)
+'							F.Intrinsic.Control.If(V.ODBC.con!rstPoint.EOF,=,True)
+'								F.Intrinsic.UI.Msgbox("Point value can't be found for ID:7 Early Lunch Out.","No Point Value")
+'								F.ODBC.con!rstPoint.Close
+'								V.Local.fOccPoint.Set(0)
+'							F.Intrinsic.Control.Else
+'								V.Local.fOccPoint.Set(V.ODBC.con!rstPoint.FieldValFloat!Occ_Point)
+'								F.ODBC.con!rstPoint.Close
+'							F.Intrinsic.Control.EndIf
+'							V.Local.iShift.Set(V.uGlobal.uTA(V.Local.i)!Shift)
+'							V.Local.sDept.Set(V.uGlobal.uTA(V.Local.i)!Dept)
+'							V.Local.sBalGroup.Set(V.uGlobal.uTA(V.Local.i)!BalGroup)
+'						F.Intrinsic.Control.Else
+'							V.Local.sEmp.Set(V.ODBC.con!rst.FieldValTrim!Employee)
+'							V.Local.sName.Set(V.ODBC.con!rst.FieldValTrim!Name)
+'							V.Local.dDateIn.Set(V.ODBC.con!rst.FieldVal!Date_In)
+'							V.Local.dDateOut.Set(V.ODBC.con!rst.FieldVal!Date_Out)
+'							V.Local.fOccPoint.Set(V.ODBC.con!rst.FieldValFloat!Occ_Point)
+'							V.Local.iShift.Set(V.ODBC.con!rst.FieldValLong!Shift)
+'							V.Local.sDept.Set(V.ODBC.con!rst.FieldValTrim!Dept)
+'							V.Local.sBalGroup.Set(V.ODBC.con!rst.FieldValTrim!Bal_Group)
+'						F.Intrinsic.Control.EndIf
+'						F.ODBC.con!rst.Close
+'						F.Intrinsic.Control.If(V.uGlobal.uTA(V.Local.i)!Lunch,=,True)
+'							F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.Local.dDateLunchIn,"LunchOut",V.Local.dDateLunchOut,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+'						F.Intrinsic.Control.Else
+'							F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.Local.sNull,"LunchOut",V.Local.sNull,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+'						F.Intrinsic.Control.EndIf
+'					F.Intrinsic.Control.EndIf
+		
+'					'Checking for late lunch out
+'					F.Intrinsic.Control.If(V.Local.iMin,<,-5)
+'						V.Local.iOccID.Set(8)
+'						V.Local.sOccName.Set("Late Lunch Out")
+'						F.Intrinsic.String.Concat("Select * from ATG_Emp_Points_Occ where Employee = '",V.uGlobal.uTA(V.Local.i)!Employee,"' and Occ_Date = '",V.Local.dDateIn.PervasiveDate,"' and Occ_ID = 8",V.Local.sSql)
+'						F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSql)
+'						F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+'							V.Local.sEmp.Set(V.uGlobal.uTA(V.Local.i)!Employee)
+'							V.Local.sName.Set(V.uGlobal.uTA(V.Local.i)!Name)
+'							V.Local.sSql.Set("Select Occ_Point from ATG_Emp_Points_Maint where Occ_ID = 8")
+'							F.ODBC.Connection!con.OpenRecordsetRO("rstPoint",V.Local.sSql)
+'							F.Intrinsic.Control.If(V.ODBC.con!rstPoint.EOF,=,True)
+'								F.Intrinsic.UI.Msgbox("Point value can't be found for ID:8 Late Lunch Out.","No Point Value")
+'								F.ODBC.con!rstPoint.Close
+'								V.Local.fOccPoint.Set(0)
+'							F.Intrinsic.Control.Else
+'								V.Local.fOccPoint.Set(V.ODBC.con!rstPoint.FieldValFloat!Occ_Point)
+'								F.ODBC.con!rstPoint.Close
+'							F.Intrinsic.Control.EndIf
+'							V.Local.iShift.Set(V.uGlobal.uTA(V.Local.i)!Shift)
+'							V.Local.sDept.Set(V.uGlobal.uTA(V.Local.i)!Dept)
+'							V.Local.sBalGroup.Set(V.uGlobal.uTA(V.Local.i)!BalGroup)
+'						F.Intrinsic.Control.Else
+'							V.Local.sEmp.Set(V.ODBC.con!rst.FieldValTrim!Employee)
+'							V.Local.sName.Set(V.ODBC.con!rst.FieldValTrim!Name)
+'							V.Local.dDateIn.Set(V.ODBC.con!rst.FieldVal!Date_In)
+'							V.Local.dDateOut.Set(V.ODBC.con!rst.FieldVal!Date_Out)
+'							V.Local.fOccPoint.Set(V.ODBC.con!rst.FieldValFloat!Occ_Point)
+'							V.Local.iShift.Set(V.ODBC.con!rst.FieldValLong!Shift)
+'							V.Local.sDept.Set(V.ODBC.con!rst.FieldValTrim!Dept)
+'							V.Local.sBalGroup.Set(V.ODBC.con!rst.FieldValTrim!Bal_Group)
+'						F.Intrinsic.Control.EndIf
+'						F.ODBC.con!rst.Close
+'						F.Intrinsic.Control.If(V.uGlobal.uTA(V.Local.i)!Lunch,=,True)
+'							F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.Local.dDateLunchIn,"LunchOut",V.Local.dDateLunchOut,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+'						F.Intrinsic.Control.Else
+'							F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.Local.sNull,"LunchOut",V.Local.sNull,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+'						F.Intrinsic.Control.EndIf
+'					F.Intrinsic.Control.EndIf
+
+'					'Checking for early lunch In
+'					F.Intrinsic.Date.DateDiff("N",V.Local.dDateLunchIn,V.Local.dLunchIn,V.Local.iMin)
+'					F.Intrinsic.Control.If(V.Local.iMin,>,15)
+'						V.Local.iOccID.Set(9)
+'						V.Local.sOccName.Set("Early Lunch In")
+'						F.Intrinsic.String.Concat("Select * from ATG_Emp_Points_Occ where Employee = '",V.uGlobal.uTA(V.Local.i)!Employee,"' and Occ_Date = '",V.Local.dDateIn.PervasiveDate,"' and Occ_ID = 9",V.Local.sSql)
+'						F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSql)
+'						F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+'							V.Local.sEmp.Set(V.uGlobal.uTA(V.Local.i)!Employee)
+'							V.Local.sName.Set(V.uGlobal.uTA(V.Local.i)!Name)
+'							V.Local.sSql.Set("Select Occ_Point from ATG_Emp_Points_Maint where Occ_ID = 9")
+'							F.ODBC.Connection!con.OpenRecordsetRO("rstPoint",V.Local.sSql)
+'							F.Intrinsic.Control.If(V.ODBC.con!rstPoint.EOF,=,True)
+'								F.Intrinsic.UI.Msgbox("Point value can't be found for ID:9 Early Lunch In.","No Point Value")
+'								F.ODBC.con!rstPoint.Close
+'								V.Local.fOccPoint.Set(0)
+'							F.Intrinsic.Control.Else
+'								V.Local.fOccPoint.Set(V.ODBC.con!rstPoint.FieldValFloat!Occ_Point)
+'								F.ODBC.con!rstPoint.Close
+'							F.Intrinsic.Control.EndIf
+'							V.Local.iShift.Set(V.uGlobal.uTA(V.Local.i)!Shift)
+'							V.Local.sDept.Set(V.uGlobal.uTA(V.Local.i)!Dept)
+'							V.Local.sBalGroup.Set(V.uGlobal.uTA(V.Local.i)!BalGroup)
+'						F.Intrinsic.Control.Else
+'							V.Local.sEmp.Set(V.ODBC.con!rst.FieldValTrim!Employee)
+'							V.Local.sName.Set(V.ODBC.con!rst.FieldValTrim!Name)
+'							V.Local.dDateIn.Set(V.ODBC.con!rst.FieldVal!Date_In)
+'							V.Local.dDateOut.Set(V.ODBC.con!rst.FieldVal!Date_Out)
+'							V.Local.fOccPoint.Set(V.ODBC.con!rst.FieldValFloat!Occ_Point)
+'							V.Local.iShift.Set(V.ODBC.con!rst.FieldValLong!Shift)
+'							V.Local.sDept.Set(V.ODBC.con!rst.FieldValTrim!Dept)
+'							V.Local.sBalGroup.Set(V.ODBC.con!rst.FieldValTrim!Bal_Group)
+'						F.Intrinsic.Control.EndIf
+'						F.ODBC.con!rst.Close
+'						F.Intrinsic.Control.If(V.uGlobal.uTA(V.Local.i)!Lunch,=,True)
+'							F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.Local.dDateLunchIn,"LunchOut",V.Local.dDateLunchOut,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+'						F.Intrinsic.Control.Else
+'							F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.Local.sNull,"LunchOut",V.Local.sNull,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+'						F.Intrinsic.Control.EndIf
+'					F.Intrinsic.Control.EndIf
+
+					'Checking for late lunch In
+					F.Intrinsic.Control.If(V.Local.iMin,<,-3)
+						V.Local.iOccID.Set(10)
+						V.Local.sOccName.Set("Late Lunch In")
+						F.Intrinsic.String.Concat("Select * from ATG_3837_Emp_PntsOcc where Employee = '",V.uGlobal.uTA(V.Local.i)!Employee,"' and Occ_Date = '",V.Local.dDateIn.PervasiveDate,"' and Occ_ID = 10",V.Local.sSql)
+						F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSql)
+						F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+							V.Local.sEmp.Set(V.uGlobal.uTA(V.Local.i)!Employee)
+							V.Local.sName.Set(V.uGlobal.uTA(V.Local.i)!Name)
+							V.Local.sSql.Set("Select Occ_Point from ATG_3837_Emp_PntsMnt where Occ_ID = 10")
+							F.ODBC.Connection!con.OpenRecordsetRO("rstPoint",V.Local.sSql)
+							F.Intrinsic.Control.If(V.ODBC.con!rstPoint.EOF,=,True)
+								F.Intrinsic.UI.Msgbox("Point value can't be found for ID:10 Late Lunch In.","No Point Value")
+								F.ODBC.con!rstPoint.Close
+								V.Local.fOccPoint.Set(0)
+							F.Intrinsic.Control.Else
+								V.Local.fOccPoint.Set(V.ODBC.con!rstPoint.FieldValFloat!Occ_Point)
+								F.ODBC.con!rstPoint.Close
+							F.Intrinsic.Control.EndIf
+							V.Local.iShift.Set(V.uGlobal.uTA(V.Local.i)!Shift)
+							V.Local.sDept.Set(V.uGlobal.uTA(V.Local.i)!Dept)
+							V.Local.sBalGroup.Set(V.uGlobal.uTA(V.Local.i)!BalGroup)
+						F.Intrinsic.Control.Else
+							V.Local.sEmp.Set(V.ODBC.con!rst.FieldValTrim!Employee)
+							V.Local.sName.Set(V.ODBC.con!rst.FieldValTrim!Name)
+							V.Local.dDateIn.Set(V.ODBC.con!rst.FieldVal!Date_In)
+							V.Local.dDateOut.Set(V.ODBC.con!rst.FieldVal!Date_Out)
+							V.Local.fOccPoint.Set(V.ODBC.con!rst.FieldValFloat!Occ_Point)
+							V.Local.iShift.Set(V.ODBC.con!rst.FieldValLong!Shift)
+							V.Local.sDept.Set(V.ODBC.con!rst.FieldValTrim!Dept)
+							V.Local.sBalGroup.Set(V.ODBC.con!rst.FieldValTrim!Bal_Group)
+						F.Intrinsic.Control.EndIf
+						F.ODBC.con!rst.Close
+						F.Intrinsic.Control.If(V.Local.iDay,>,1)
+							F.Intrinsic.Control.AndIf(V.Local.iDay,<,7)
+								F.Intrinsic.Control.If(V.uGlobal.uTA(V.Local.i)!Lunch,=,True)
+									F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.Local.dDateLunchIn,"LunchOut",V.Local.dDateLunchOut,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+								F.Intrinsic.Control.Else
+									F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.Local.sNull,"LunchOut",V.Local.sNull,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+								F.Intrinsic.Control.EndIf
+							F.Intrinsic.Control.EndIf
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+
+				'Checking to see if employee was under hours and if occurence already exists
+				F.Intrinsic.String.Concat(V.uGlobal.uTA(V.Local.i)!Hours,".",V.uGlobal.uTA(V.Local.i)!Minutes,V.Local.sHrs)
+				V.Local.fEmpHrs.Set(V.Local.sHrs.Float)
+'				F.Intrinsic.Control.If(V.Local.fEmpHrs,<,V.Local.fShiftHrs)
+'					V.Local.iOccID.Set(6)
+'					V.Local.sOccName.Set("Under Hours")
+'					F.Intrinsic.String.Concat("Select * from ATG_Emp_Points_Occ where Employee = '",V.uGlobal.uTA(V.Local.i)!Employee,"' and Occ_Date = '",V.Local.dDateIn.PervasiveDate,"' and Occ_ID = 6",V.Local.sSql)
+'					F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+'					F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+'						V.Local.sEmp.Set(V.uGlobal.uTA(V.Local.i)!Employee)
+'						V.Local.sName.Set(V.uGlobal.uTA(V.Local.i)!Name)
+'						V.Local.sSql.Set("Select Occ_Point from ATG_Emp_Points_Maint where Occ_ID = 6")
+'						F.ODBC.Connection!con.OpenRecordsetRO("rstPoint",V.Local.sSql)
+'						F.Intrinsic.Control.If(V.ODBC.con!rstPoint.EOF,=,True)
+'							F.Intrinsic.UI.Msgbox("Point value can't be found for ID:6 Under Hours.","No Point Value")
+'							F.ODBC.con!rstPoint.Close
+'							V.Local.fOccPoint.Set(0)
+'						F.Intrinsic.Control.Else
+'							V.Local.fOccPoint.Set(V.ODBC.con!rstPoint.FieldValFloat!Occ_Point)
+'							F.ODBC.con!rstPoint.Close
+'						F.Intrinsic.Control.EndIf
+'						V.Local.iShift.Set(V.uGlobal.uTA(V.Local.i)!Shift)
+'						V.Local.sDept.Set(V.uGlobal.uTA(V.Local.i)!Dept)
+'						V.Local.sBalGroup.Set(V.uGlobal.uTA(V.Local.i)!BalGroup)
+'					F.Intrinsic.Control.Else
+'						V.Local.sEmp.Set(V.ODBC.con!rst.FieldValTrim!Employee)
+'						V.Local.sName.Set(V.ODBC.con!rst.FieldValTrim!Name)
+'						V.Local.dDateIn.Set(V.ODBC.con!rst.FieldVal!Date_In)
+'						V.Local.dDateOut.Set(V.ODBC.con!rst.FieldVal!Date_Out)
+'						V.Local.fOccPoint.Set(V.ODBC.con!rst.FieldValFloat!Occ_Point)
+'						V.Local.iShift.Set(V.ODBC.con!rst.FieldValLong!Shift)
+'						V.Local.sDept.Set(V.ODBC.con!rst.FieldValTrim!Dept)
+'						V.Local.sBalGroup.Set(V.ODBC.con!rst.FieldValTrim!Bal_Group)
+'					F.Intrinsic.Control.EndIf
+'					F.ODBC.con!rst.Close
+'					F.Intrinsic.Control.CallSub(Addoccudt,"BalGroup",V.Local.sBalGroup,"Dept",V.Local.sDept,"Shift",V.Local.iShift,"OccPoint",V.Local.fOccPoint,"OccName",V.Local.sOccName,"OccID",V.Local.iOccID,"DateOut",V.Local.dDateOut,"DateIn",V.Local.dDateIn,"LunchIn",V.Local.dDateLunchIn,"LunchOut",V.Local.dDateLunchOut,"Name",V.Local.sName,"Emp",V.Local.sEmp)
+'				F.Intrinsic.Control.EndIf
+				F.Intrinsic.Debug.SetLA("Checked to see if employee's hours were less than shift hours, if so added to UDT for grid")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.i)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("OccUDT_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.OccUDT.End
+
+Program.Sub.AddOccUDT.Start
+V.Local.sError.Declare(String)
+V.Local.iUB.Declare(Long)
+V.Local.sSql.Declare(String)
+V.Local.dOccDate.Declare(Date)
+
+F.Intrinsic.Control.SetErrorHandler("AddOccUDT_Err")
+F.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.Control.If(V.uGlobal.uOcc.UBound,=,-1)
+	V.uGlobal.uOcc.Redim(0,0)
+	V.uGlobal.uOcc!Employee.Set(V.Args.Emp)
+	V.uGlobal.uOcc!Name.Set(V.Args.Name)
+	V.uGlobal.uOcc!DateIn.Set(V.Args.DateIn)
+	V.uGlobal.uOcc!DateOut.Set(V.Args.DateOut)
+	V.uGlobal.uOcc!LunchIn.Set(V.Args.LunchIn)
+	V.uGlobal.uOcc!LunchOut.Set(V.Args.LunchOut)
+	V.uGlobal.uOcc!OccID.Set(V.Args.OccID)
+	V.uGlobal.uOcc!OccName.Set(V.Args.OccName)
+	V.uGlobal.uOcc!OccPoint.Set(V.Args.OccPoint)
+	V.uGlobal.uOcc!Shift.Set(V.Args.Shift)
+	V.uGlobal.uOcc!Dept.Set(V.Args.Dept)
+	V.uGlobal.uOcc!BalGroup.Set(V.Args.BalGroup)
+	V.Local.dOccDate.Set(V.Args.DateIn)
+	F.Intrinsic.String.Concat("Select * from ATG_3837_Emp_PntsNts where Employee = '",V.Args.Emp.Trim,"' and Occ_ID = ",V.Args.OccID," and Occ_Date = '",V.Local.dOccDate.PervasiveDate,"'",V.Local.sSql)
+	F.ODBC.Connection!con.OpenRecordsetRO("rstNote",V.Local.sSql)
+	F.Intrinsic.Control.If(V.ODBC.con!rstNote.EOF,=,True)
+		V.uGlobal.uOcc!FGStyle.Set(2)
+	F.Intrinsic.Control.Else
+		V.uGlobal.uOcc!FGStyle.Set(3)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!rstNote.Close
+F.Intrinsic.Control.Else
+	V.Local.iUB.Set(V.uGlobal.uOcc.UBound)
+	F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+	V.uGlobal.uOcc.RedimPreserve(V.uGlobal.uOcc.LBound,V.Local.iUB)
+	V.uGlobal.uOcc(V.Local.iUB)!Employee.Set(V.Args.Emp)
+	V.uGlobal.uOcc(V.Local.iUB)!Name.Set(V.Args.Name)
+	V.uGlobal.uOcc(V.Local.iUB)!DateIn.Set(V.Args.DateIn)
+	V.uGlobal.uOcc(V.Local.iUB)!DateOut.Set(V.Args.DateOut)
+	V.uGlobal.uOcc(V.Local.iUB)!LunchIn.Set(V.Args.LunchIn)
+	V.uGlobal.uOcc(V.Local.iUB)!LunchOut.Set(V.Args.LunchOut)
+	V.uGlobal.uOcc(V.Local.iUB)!OccID.Set(V.Args.OccID)
+	V.uGlobal.uOcc(V.Local.iUB)!OccName.Set(V.Args.OccName)
+	V.uGlobal.uOcc(V.Local.iUB)!OccPoint.Set(V.Args.OccPoint)
+	V.uGlobal.uOcc(V.Local.iUB)!Shift.Set(V.Args.Shift)
+	V.uGlobal.uOcc(V.Local.iUB)!Dept.Set(V.Args.Dept)
+	V.uGlobal.uOcc(V.Local.iUB)!BalGroup.Set(V.Args.BalGroup)
+	V.Local.dOccDate.Set(V.Args.DateIn)
+	F.Intrinsic.String.Concat("Select * from ATG_3837_Emp_PntsNts where Employee = '",V.Args.Emp.Trim,"' and Occ_ID = ",V.Args.OccID," and Occ_Date = '",V.Local.dOccDate.PervasiveDate,"'",V.Local.sSql)
+	F.ODBC.Connection!con.OpenRecordsetRO("rstNote",V.Local.sSql)
+	F.Intrinsic.Control.If(V.ODBC.con!rstNote.EOF,=,True)
+		V.uGlobal.uOcc(V.Local.iUB)!FGStyle.Set(2)
+	F.Intrinsic.Control.Else
+		V.uGlobal.uOcc(V.Local.iUB)!FGStyle.Set(3)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!rstNote.Close
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("AddOccUDT_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.AddOccUDT.End
+
+Program.Sub.GridTitle.Start
+V.Local.sError.Declare(String)
+V.Local.iCol.Declare(Long)
+
+F.Intrinsic.Control.SetErrorHandler("GridTitle_Err")
+F.Intrinsic.Control.ClearErrors
+
+Gui.F_EmpOccRev.gsfgOcc.Rows(1)
+Gui.F_EmpOccRev.gsfgOcc.Cols(13)
+Gui.F_EmpOccRev.gsfgOcc.TextMatrix(0,0,"Employee")
+Gui.F_EmpOccRev.gsfgOcc.TextMatrix(1,0,"Name")
+Gui.F_EmpOccRev.gsfgOcc.ColWidth(1,2200)
+Gui.F_EmpOccRev.gsfgOcc.TextMatrix(2,0,"Date In")
+Gui.F_EmpOccRev.gsfgOcc.ColWidth(2,2250)
+Gui.F_EmpOccRev.gsfgOcc.TextMatrix(3,0,"Lunch Out")
+Gui.F_EmpOccRev.gsfgOcc.ColWidth(3,2250)
+Gui.F_EmpOccRev.gsfgOcc.TextMatrix(4,0,"Lunch In")
+Gui.F_EmpOccRev.gsfgOcc.ColWidth(4,2250)
+Gui.F_EmpOccRev.gsfgOcc.TextMatrix(5,0,"Date Out")
+Gui.F_EmpOccRev.gsfgOcc.ColWidth(5,2250)
+Gui.F_EmpOccRev.gsfgOcc.TextMatrix(6,0,"Shift")
+Gui.F_EmpOccRev.gsfgOcc.TextMatrix(7,0,"Department")
+Gui.F_EmpOccRev.gsfgOcc.ColWidth(7,1200)
+Gui.F_EmpOccRev.gsfgOcc.TextMatrix(8,0,"Group")
+Gui.F_EmpOccRev.gsfgOcc.ColWidth(8,1200)
+Gui.F_EmpOccRev.gsfgOcc.TextMatrix(9,0,"ID")
+Gui.F_EmpOccRev.gsfgOcc.TextMatrix(10,0,"Occurrence")
+Gui.F_EmpOccRev.gsfgOcc.ColWidth(10,1200)
+Gui.F_EmpOccRev.gsfgOcc.TextMatrix(11,0,"Points")
+Gui.F_EmpOccRev.gsfgOcc.TextMatrix(12,0,"")
+
+F.Intrinsic.Control.DoUntil(V.Local.iCol,=,13)
+	Gui.F_EmpOccRev.gsfgOcc.BuildStyle(1,V.Local.iCol,"type","locked",True)
+	Gui.F_EmpOccRev.gsfgOcc.BuildStyle(1,V.Local.iCol,"format","alignment",2)
+	Gui.F_EmpOccRev.gsfgOcc.BuildStyle(1,V.Local.iCol,"fontstyle","bold",True)
+	F.Intrinsic.Math.Add(V.Local.iCol,1,V.Local.iCol)
+F.Intrinsic.Control.Loop
+Gui.F_EmpOccRev.gsfgOcc.ApplyStyle(0,1)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("GridTitle_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.GridTitle.End
+
+Program.Sub.GridStyle.Start
+V.Local.sError.Declare(String)
+V.Local.iCol.Declare(Long)
+
+F.Intrinsic.Control.SetErrorHandler("GridStyle_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.iCol.Set(0)
+F.Intrinsic.Control.DoUntil(V.Local.iCol,=,11)
+	Gui.F_EmpOccRev.gsfgOcc.BuildStyle(2,V.Local.iCol,"type","locked",True)
+	Gui.F_EmpOccRev.gsfgOcc.BuildStyle(2,V.Local.iCol,"format","alignment",2)
+	Gui.F_EmpOccRev.gsfgOcc.BuildStyle(2,V.Local.iCol,"fontstyle","bold",False)
+	F.Intrinsic.Math.Add(V.Local.iCol,1,V.Local.iCol)
+F.Intrinsic.Control.Loop
+Gui.F_EmpOccRev.gsfgOcc.BuildStyle(2,12,"type","command","Notes")
+Gui.F_EmpOccRev.gsfgOcc.BuildStyle(2,12,"format","alignment",4)
+
+V.Local.iCol.Set(0)
+F.Intrinsic.Control.DoUntil(V.Local.iCol,=,11)
+	Gui.F_EmpOccRev.gsfgOcc.BuildStyle(3,V.Local.iCol,"type","locked",True)
+	Gui.F_EmpOccRev.gsfgOcc.BuildStyle(3,V.Local.iCol,"format","alignment",2)
+	Gui.F_EmpOccRev.gsfgOcc.BuildStyle(3,V.Local.iCol,"fontstyle","bold",False)
+	F.Intrinsic.Math.Add(V.Local.iCol,1,V.Local.iCol)
+F.Intrinsic.Control.Loop
+Gui.F_EmpOccRev.gsfgOcc.BuildStyle(3,12,"type","command","Notes*")
+Gui.F_EmpOccRev.gsfgOcc.BuildStyle(3,12,"format","alignment",4)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("GridStyle_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.GridStyle.End
+
+Program.Sub.GridLoad.Start
+V.Local.sError.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("GridLoad_Err")
+F.Intrinsic.Control.ClearErrors
+
+Gui.F_EmpOccRev.gsfgOcc.LoadFromUDT("uGlobal.uOcc","Employee*!*Name*!*DateIn*!*LunchOut*!*LunchIn*!*DateOut*!*Shift*!*Dept*!*BalGroup*!*OccID*!*OccName*!*OccPoint",0)
+Gui.F_EmpOccRev.gsfgOcc.SetProperty("AllowResizing",1)
+Gui.F_EmpOccRev.gsfgOcc.FixedRows(1)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("GridLoad_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.GridLoad.End
+
+program.sub.cmdsave_click.start
+V.Local.sError.Declare(String)
+V.Local.iRow.Declare(Long)
+V.Local.i.Declare(Long)
+V.Local.sRow.Declare(String)
+V.Local.sRowArray.Declare(String)
+V.Local.dOccDate.Declare(Date)
+V.Local.dDateIn.Declare(Date)
+V.Local.dDateOut.Declare(Date)
+V.Local.sSql.Declare(String)
+
+
+F.Intrinsic.Control.SetErrorHandler("cmdSave_Err")
+F.Intrinsic.Control.ClearErrors
+
+Gui.F_EmpOccRev.gsfgOcc.Commit
+F.Intrinsic.UI.InvokeWaitDialog("Saving Occurrences","Saving")
+V.Local.iRow.Set(V.Screen.F_EmpOccRev!gsfgOcc.Rows)
+F.Intrinsic.Math.Sub(V.Local.iRow,1,V.Local.iRow)
+F.Intrinsic.Control.For(V.Local.i,1,V.Local.iRow,1)
+	F.Intrinsic.Control.If(V.Local.i,=,44)
+		F.Intrinsic.Debug.Stop
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.UI.ChangeWaitStatus("Saving matrix",V.Local.i,1,V.Local.iRow)
+	Gui.F_EmpOccRev.gsfgOcc.ReadRow(V.Local.i,V.Local.sRow)
+	F.Intrinsic.String.Split(V.Local.sRow,"*!*",V.Local.sRowArray)
+	V.Local.dDateIn.Set(V.Local.sRowArray(2))
+	V.Local.dDateOut.Set(V.Local.sRowArray(5))
+	F.Intrinsic.Date.DateComp(V.Local.dDateIn,V.Local.dOccDate)
+	F.Intrinsic.String.Concat("Select * from ATG_3837_Emp_PntsOcc where Employee = '",V.Local.sRowArray(0),"' and Occ_ID = ",V.Local.sRowArray(9)," and Occ_Date = '",V.Local.dOccDate.PervasiveDate,"'",V.Local.sSql)
+	F.ODBC.Connection!con.OpenRecordsetRW("rst",V.Local.sSql)
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+		F.ODBC.con!rst.AddNew
+		F.ODBC.con!rst.Set!Employee(V.Local.sRowArray(0))
+		F.ODBC.con!rst.Set!Name(V.Local.sRowArray(1))
+		F.ODBC.con!rst.Set!Date_In(V.Local.dDateIn)
+		F.ODBC.con!rst.Set!Date_Out(V.Local.dDateOut)
+		F.ODBC.con!rst.Set!Shift(V.Local.sRowArray(6))
+		F.ODBC.con!rst.Set!Dept(V.Local.sRowArray(7))
+		F.ODBC.con!rst.Set!Bal_Group(V.Local.sRowArray(8))
+		F.ODBC.con!rst.Set!Occ_ID(V.Local.sRowArray(9))
+		F.ODBC.con!rst.Set!Occ_Name(V.Local.sRowArray(10))
+		F.ODBC.con!rst.Set!Occ_Point(V.Local.sRowArray(11))
+		F.ODBC.con!rst.Set!Occ_Date(V.Local.dOccDate.PervasiveDate)
+		F.ODBC.con!rst.Update
+	F.Intrinsic.Control.Else
+		F.ODBC.con!rst.Set!Occ_Point(V.Local.sRowArray(11))
+		F.ODBC.con!rst.Update
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+F.Intrinsic.Control.Next(V.Local.i)
+F.Intrinsic.UI.CloseWaitDialog
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdSave_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdsave_click.end
+
+program.sub.gsfgocc_commandclick.start
+V.Local.sError.Declare(String)
+V.Local.sRow.Declare(String)
+V.Local.dOccDate.Declare(Date)
+V.Local.sSql.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("cmdNotes_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Global.iKey.Set(V.Args.Key)
+Gui.F_EmpOccRev.gsfgOcc.Enabled(False)
+Gui.F_EmpOccRev.gsfgOcc.ReadRow(V.Global.iKey,V.Local.sRow)
+F.Intrinsic.String.Split(V.Local.sRow,"*!*",V.Local.sRow)
+V.Local.dOccDate.Set(V.Local.sRow(2))
+F.Intrinsic.Date.DateComp(V.Local.dOccDate,V.Local.dOccDate)
+F.Intrinsic.String.Concat("Select * from ATG_Emp_Points_Notes where Employee = '",V.Local.sRow(0),"' and Occ_ID = ",V.Local.sRow(9)," and Occ_Date = '",V.Local.dOccDate.PervasiveDate,"'",V.Local.sSql)
+F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+	Gui.F_EmpOccNote.mltxtNote.Text("")
+F.Intrinsic.Control.Else
+	Gui.F_EmpOccNote.mltxtNote.Text(V.ODBC.con!rst.FieldVal!Note)
+F.Intrinsic.Control.EndIf
+F.ODBC.con!rst.Close
+Gui.F_EmpOccNote..Show
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdNotes_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.gsfgocc_commandclick.end
+
+program.sub.f_empoccnote_unload.start
+Gui.F_EmpOccNote..Visible(False)
+Gui.F_EmpOccRev.gsfgOcc.Enabled(True)
+
+program.sub.f_empoccnote_unload.end
+
+program.sub.cmdnotesave_click.start
+V.Local.sError.Declare(String)
+V.Local.sRow.Declare(String)
+V.Local.dOccDate.Declare(Date)
+V.Local.sSql.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("cmdNoteSave_Err")
+F.Intrinsic.Control.ClearErrors
+
+'Saving occurence note entered
+Gui.F_EmpOccRev.gsfgOcc.ReadRow(V.Global.iKey,V.Local.sRow)
+F.Intrinsic.String.Split(V.Local.sRow,"*!*",V.Local.sRow)
+V.Local.dOccDate.Set(V.Local.sRow(2))
+F.Intrinsic.Date.DateComp(V.Local.dOccDate,V.Local.dOccDate)
+F.Intrinsic.String.Concat("Select * from ATG_3837_Emp_PntsNts where Employee = '",V.Local.sRow(0),"' and Occ_ID = ",V.Local.sRow(9)," and Occ_Date = '",V.Local.dOccDate.PervasiveDate,"'",V.Local.sSql)
+F.ODBC.Connection!con.OpenRecordsetRW("rst",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+	F.ODBC.con!rst.AddNew
+	F.ODBC.con!rst.Set!Employee(V.Local.sRow(0))
+	F.ODBC.con!rst.Set!Occ_ID(V.Local.sRow(9))
+	F.ODBC.con!rst.Set!Occ_Date(V.Local.dOccDate.PervasiveDate)
+	F.ODBC.con!rst.Set!Note(V.Screen.F_EmpOccNote!mltxtNote.Text)
+	F.ODBC.con!rst.Update
+F.Intrinsic.Control.Else
+	F.ODBC.con!rst.Set!Note(V.Screen.F_EmpOccNote!mltxtNote.Text)
+	F.ODBC.con!rst.Update
+F.Intrinsic.Control.EndIf
+F.ODBC.con!rst.Close
+Gui.F_EmpOccRev.gsfgOcc.TextMatrix(0,0,"Employee")
+Gui.F_EmpOccRev.gsfgOcc.TextMatrix(12,V.Global.iKey,"Notes*")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdNoteSave_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdnotesave_click.end
+
+program.sub.ddlselect_click.start
+V.Local.sError.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("ddlSelect_Err")
+F.Intrinsic.Control.ClearErrors
+
+'Enabling or disabling screen controls based on employee or department being selected in drop down list
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Employee")
+	Gui.F_EmpOcc.lbl_txtBeg.Caption("Beginning Employee")
+	Gui.F_EmpOcc.lbl_txtEnd.Caption("Ending Employee")
+	Gui.F_EmpOcc.chkAll.Caption("All Employees")
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Department")
+	Gui.F_EmpOcc.lbl_txtBeg.Caption("Beginning Department")
+	Gui.F_EmpOcc.lbl_txtEnd.Caption("Ending Department")
+	Gui.F_EmpOcc.chkAll.Caption("All Departments")
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Balancing Group")
+	Gui.F_EmpOcc.lbl_txtBeg.Caption("Beginning Group")
+	Gui.F_EmpOcc.lbl_txtEnd.Caption("Ending Group")
+	Gui.F_EmpOcc.chkAll.Caption("All Groups")
+F.Intrinsic.Control.EndIf
+Gui.F_EmpOcc.lvw.ClearItems
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("ddlSelect_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.ddlselect_click.end
+
+program.sub.gsfgocc_cellenter.start
+F.Intrinsic.Control.SetErrorHandler("gsfgocc_cellenter_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+Gui.F_EmpOccRev.gsfgOcc.RowColor(V.Args.Key,V.Color.LtBlue,V.Color.Black)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("gsfgocc_cellenter_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3837_Emp_Points_Occurence_Var4.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_empocc_unload)
+Function.Intrinsic.Control.EndIf
+
+program.sub.gsfgocc_cellenter.end
+
+program.sub.gsfgocc_cellexit.start
+F.Intrinsic.Control.SetErrorHandler("gsfgocc_cellexit_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+Gui.F_EmpOccRev.gsfgOcc.RowColor(V.Args.Key,V.Color.White,V.Color.Black)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("gsfgocc_cellexit_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3837_Emp_Points_Occurence_Var4.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_empocc_unload)
+Function.Intrinsic.Control.EndIf
+
+program.sub.gsfgocc_cellexit.end
+
+program.sub.cmdbegbrows_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdbegbrows_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sWidths.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Employee")
+	'Beginning employee browser
+	V.Local.sSql.Set("Select EMPLOYEE, NAME from V_EMPLOYEE_MSTR ORDER BY EMPLOYEE")
+	V.Local.sTitles.Set("Employee ID*!*Name")
+	V.Local.sWidths.Set("2500*!*4700")
+
+	F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+	F.Intrinsic.String.Split(V.Local.sWidths,"*!*",V.Local.sWidths)
+	F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+	F.Intrinsic.UI.Browser("Selet Beginning Employee","con",V.Local.sSql,V.Local.sTitles,V.Local.sWidths,5000,8000,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		Gui.F_EmpOcc.txtBeg.Text(V.Local.sRet.Trim)
+		Gui.F_EmpOcc.txtEnd.Text(V.Screen.F_EmpOcc!txtBeg.Text)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Department")
+	'Beginning department browser
+	V.Local.sSql.Set("Select DEPT_ID, DEPT_NAME from V_DEPARTMENTS ORDER BY DEPT_ID")
+	V.Local.sTitles.Set("Dept ID*!*Name")
+	V.Local.sWidths.Set("2500*!*4700")
+
+	F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+	F.Intrinsic.String.Split(V.Local.sWidths,"*!*",V.Local.sWidths)
+	F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+	F.Intrinsic.UI.Browser("Selet Beginning Department","con",V.Local.sSql,V.Local.sTitles,V.Local.sWidths,5000,8000,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		Gui.F_EmpOcc.txtBeg.Text(V.Local.sRet.Trim)
+		Gui.F_EmpOcc.txtEnd.Text(V.Screen.F_EmpOcc!txtBeg.Text)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Balancing Group")
+	'Beginning balancing group browser
+	V.Local.sSql.Set("Select BAL_GROUP, DESCR from V_BALANCING_GROUP ORDER BY BAL_GROUP")
+	V.Local.sTitles.Set("Group*!*Name")
+	V.Local.sWidths.Set("2500*!*4700")
+
+	F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+	F.Intrinsic.String.Split(V.Local.sWidths,"*!*",V.Local.sWidths)
+	F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+	F.Intrinsic.UI.Browser("Selet Beginning Balancing Group","con",V.Local.sSql,V.Local.sTitles,V.Local.sWidths,5000,8000,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		Gui.F_EmpOcc.txtBeg.Text(V.Local.sRet.Trim)
+		Gui.F_EmpOcc.txtEnd.Text(V.Screen.F_EmpOcc!txtBeg.Text)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdbegbrows_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3837_Emp_Points_Occurence_Var4.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_empocc_unload)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdbegbrows_click.end
+
+program.sub.cmddelete_click.start
+F.Intrinsic.Control.SetErrorHandler("cmddelete_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iKey.Declare(Long)
+V.Local.iOrd.Declare(Long)
+
+'Deleting selected department range from list view
+V.Local.iKey.Set(V.Screen.F_EmpOcc!lvw.SelectedItemKey)
+Gui.F_EmpOcc.lvw.ListitemKeyToOrdinal(V.Local.iKey,V.Local.iOrd)
+Gui.F_EmpOcc.lvw.RemoveItem(V.Local.iOrd)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmddelete_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3837_Emp_Points_Occurence_Var4.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_empocc_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmddelete_click.end
+
+program.sub.cmdclear_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdclear_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Clearing department list view of all range selections
+Gui.F_EmpOcc.lvw.ClearItems
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdclear_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3837_Emp_Points_Occurence_Var4.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_empocc_unload)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdclear_click.end
+
+program.sub.cmdadd_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdadd_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Employee")
+	'Validating employee range selection and adding to listview
+	F.Intrinsic.String.Concat("Select EMPLOYEE from V_EMPLOYEE_MSTR where EMPLOYEE = '",V.Screen.F_EmpOcc!txtBeg.Text,"'",V.Local.sSql)
+	F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,"True")
+		F.Intrinsic.UI.Msgbox("Invalid beginning employee selected!","Invalid Employee")
+		Gui.F_EmpOcc.txtBeg.SetFocus
+		F.ODBC.con!rst.Close
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.Else
+		F.ODBC.con!rst.Close
+		F.Intrinsic.String.Concat("Select EMPLOYEE from V_EMPLOYEE_MSTR where EMPLOYEE = '",V.Screen.F_EmpOcc!txtEnd.Text,"'",V.Local.sSql)
+		F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+		F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+			F.Intrinsic.UI.Msgbox("Invalid ending employee selected!","Invalid Employee")
+			Gui.F_EmpOcc.txtEnd.SetFocus
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.Else
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Math.Add(V.Global.iKey,1,V.Global.iKey)
+			Gui.F_EmpOcc.lvw.AddListItem(V.Global.iKey,V.Screen.F_EmpOcc!txtBeg.Text)
+			Gui.F_EmpOcc.lvw.SetListItemSubItemText(V.Global.iKey,1,V.Screen.F_EmpOcc!txtEnd.Text)
+			Gui.F_EmpOcc.txtBeg.Text("")
+			Gui.F_EmpOcc.txtEnd.Text("")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Department")
+	'Validating department range selected as well as adding to list view
+	F.Intrinsic.String.Concat("Select DEPT_ID from V_DEPARTMENTS where DEPT_ID = '",V.Screen.F_EmpOcc!txtBeg.Text,"'",V.Local.sSql)
+	F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,"True")
+		F.Intrinsic.UI.Msgbox("Invalid beginning department selected!","Invalid Department")
+		Gui.F_EmpOcc.txtBeg.SetFocus
+		F.ODBC.con!rst.Close
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.Else
+		F.ODBC.con!rst.Close
+		F.Intrinsic.String.Concat("Select DEPT_ID from V_DEPARTMENTS where DEPT_ID = '",V.Screen.F_EmpOcc!txtEnd.Text,"'",V.Local.sSql)
+		F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+		F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+			F.Intrinsic.UI.Msgbox("Invalid ending department selected!","Invalid Department")
+			Gui.F_EmpOcc.txtEnd.SetFocus
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.Else
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Math.Add(V.Global.iKey,1,V.Global.iKey)
+			Gui.F_EmpOcc.lvw.AddListItem(V.Global.iKey,V.Screen.F_EmpOcc!txtBeg.Text)
+			Gui.F_EmpOcc.lvw.SetListItemSubItemText(V.Global.iKey,1,V.Screen.F_EmpOcc!txtEnd.Text)
+			Gui.F_EmpOcc.txtBeg.Text("")
+			Gui.F_EmpOcc.txtEnd.Text("")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Balancing Group")
+	'Validating balancing group range selected as well as adding to list view
+	F.Intrinsic.String.Concat("Select BAL_GROUP from V_BALANCING_GROUP where BAL_GROUP = '",V.Screen.F_EmpOcc!txtBeg.Text,"'",V.Local.sSql)
+	F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,"True")
+		F.Intrinsic.UI.Msgbox("Invalid beginning balancing group selected!","Invalid Balancing Group")
+		Gui.F_EmpOcc.txtBeg.SetFocus
+		F.ODBC.con!rst.Close
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.Else
+		F.ODBC.con!rst.Close
+		F.Intrinsic.String.Concat("Select BAL_GROUP from V_BALANCING_GROUP where BAL_GROUP = '",V.Screen.F_EmpOcc!txtEnd.Text,"'",V.Local.sSql)
+		F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+		F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+			F.Intrinsic.UI.Msgbox("Invalid ending balancing group selected!","Invalid Balancing Group")
+			Gui.F_EmpOcc.txtEnd.SetFocus
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.Else
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Math.Add(V.Global.iKey,1,V.Global.iKey)
+			Gui.F_EmpOcc.lvw.AddListItem(V.Global.iKey,V.Screen.F_EmpOcc!txtBeg.Text)
+			Gui.F_EmpOcc.lvw.SetListItemSubItemText(V.Global.iKey,1,V.Screen.F_EmpOcc!txtEnd.Text)
+			Gui.F_EmpOcc.txtBeg.Text("")
+			Gui.F_EmpOcc.txtEnd.Text("")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdadd_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3837_Emp_Points_Occurence_Var4.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_empocc_unload)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdadd_click.end
+
+program.sub.cmdendbrows_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdendbrows_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sWidths.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Employee")
+	'Beginning employee browser
+	V.Local.sSql.Set("Select EMPLOYEE, NAME from V_EMPLOYEE_MSTR ORDER BY EMPLOYEE")
+	V.Local.sTitles.Set("Employee ID*!*Name")
+	V.Local.sWidths.Set("2500*!*4700")
+
+	F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+	F.Intrinsic.String.Split(V.Local.sWidths,"*!*",V.Local.sWidths)
+	F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+	F.Intrinsic.UI.Browser("Selet Beginning Employee","con",V.Local.sSql,V.Local.sTitles,V.Local.sWidths,5000,8000,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		Gui.F_EmpOcc.txtEnd.Text(V.Local.sRet.Trim)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Department")
+	'Beginning department browser
+	V.Local.sSql.Set("Select DEPT_ID, DEPT_NAME from V_DEPARTMENTS ORDER BY DEPT_ID")
+	V.Local.sTitles.Set("Dept ID*!*Name")
+	V.Local.sWidths.Set("2500*!*4700")
+
+	F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+	F.Intrinsic.String.Split(V.Local.sWidths,"*!*",V.Local.sWidths)
+	F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+	F.Intrinsic.UI.Browser("Selet Beginning Department","con",V.Local.sSql,V.Local.sTitles,V.Local.sWidths,5000,8000,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		Gui.F_EmpOcc.txtEnd.Text(V.Local.sRet.Trim)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Balancing Group")
+	'Beginning balancing group browser
+	V.Local.sSql.Set("Select BAL_GROUP, DESCR from V_BALANCING_GROUP ORDER BY BAL_GROUP")
+	V.Local.sTitles.Set("Group*!*Name")
+	V.Local.sWidths.Set("2500*!*4700")
+
+	F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+	F.Intrinsic.String.Split(V.Local.sWidths,"*!*",V.Local.sWidths)
+	F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+	F.Intrinsic.UI.Browser("Selet Beginning Balancing Group","con",V.Local.sSql,V.Local.sTitles,V.Local.sWidths,5000,8000,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		Gui.F_EmpOcc.txtEnd.Text(V.Local.sRet.Trim)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdendbrows_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3837_Emp_Points_Occurence_Var4.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_empocc_unload)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdendbrows_click.end
+
+program.sub.chkall_click.start
+F.Intrinsic.Control.SetErrorHandler("chkall_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Disabling or enabling screen selections based on All being checked or not
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!chkAll.Value,=,1)
+	Gui.F_EmpOcc.txtBeg.Enabled(False)
+	Gui.F_EmpOcc.txtEnd.Enabled(False)
+	Gui.F_EmpOcc.txtBeg.Text("")
+	Gui.F_EmpOcc.txtEnd.Text("")
+	Gui.F_EmpOcc.cmdBegBrows.Enabled(False)
+	Gui.F_EmpOcc.cmdEndBrows.Enabled(False)
+	Gui.F_EmpOcc.cmdAdd.Enabled(False)
+	Gui.F_EmpOcc.cmdClear.Enabled(False)
+	Gui.F_EmpOcc.cmdDelete.Enabled(False)
+	Gui.F_EmpOcc.lvw.Enabled(False)
+F.Intrinsic.Control.Else
+	Gui.F_EmpOcc.txtBeg.Enabled(True)
+	Gui.F_EmpOcc.txtEnd.Enabled(True)
+	Gui.F_EmpOcc.cmdBegBrows.Enabled(True)
+	Gui.F_EmpOcc.cmdEndBrows.Enabled(True)
+	Gui.F_EmpOcc.cmdAdd.Enabled(True)
+	Gui.F_EmpOcc.cmdDelete.Enabled(True)
+	Gui.F_EmpOcc.cmdClear.Enabled(True)
+	Gui.F_EmpOcc.lvw.Enabled(True)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("chkall_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: ATG_3837_Emp_Points_Occurence_Var4.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_empocc_unload)
+Function.Intrinsic.Control.EndIf
+
+program.sub.chkall_click.end
+
+Program.Sub.ScreenSS.Start
+
+
+
+
+
+
+
+
+
+
+
+
+
+Program.Sub.ScreenSS.End
+
