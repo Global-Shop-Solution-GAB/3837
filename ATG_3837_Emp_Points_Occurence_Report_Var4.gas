@@ -1,0 +1,953 @@
+Program.Sub.ScreenSU.Start
+gui.F_EmpOcc..create
+gui.F_EmpOcc..caption("Employee Occurence Report")
+gui.F_EmpOcc..size(5950,9180)
+gui.F_EmpOcc..position(0,0)
+gui.F_EmpOcc..event(unload,f_empocc_unload)
+gui.F_EmpOcc..alwaysontop(False)
+gui.F_EmpOcc..fontname("Arial")
+gui.F_EmpOcc..fontsize(8)
+gui.F_EmpOcc..forecolor(0)
+gui.F_EmpOcc..fontstyle(,,,,)
+gui.F_EmpOcc..BackColor(-2147483633)
+gui.F_EmpOcc..controlbox(True)
+gui.F_EmpOcc..maxbutton(False)
+gui.F_EmpOcc..minbutton(False)
+gui.F_EmpOcc..mousepointer(0)
+gui.F_EmpOcc..moveable(True)
+gui.F_EmpOcc..sizeable(False)
+gui.F_EmpOcc..ShowInTaskBar(True)
+gui.F_EmpOcc..titlebar(True)
+gui.F_EmpOcc.lbl_dp1.create(label,"Start Date",True,1800,200,1,100,100,True,0,Arial,8,-2147483633,0)
+gui.F_EmpOcc.dtpStart.create(datepicker)
+gui.F_EmpOcc.dtpStart.visible(True)
+gui.F_EmpOcc.dtpStart.size(1800,345)
+gui.F_EmpOcc.dtpStart.zorder(0)
+gui.F_EmpOcc.dtpStart.position(100,300)
+gui.F_EmpOcc.dtpStart.enabled(True)
+gui.F_EmpOcc.dtpStart.checkbox(False)
+gui.F_EmpOcc.lbl_dp2.create(label,"End Date",True,1800,200,1,1950,100,True,0,Arial,8,-2147483633,0)
+gui.F_EmpOcc.dtpStop.create(datepicker)
+gui.F_EmpOcc.dtpStop.visible(True)
+gui.F_EmpOcc.dtpStop.size(1800,345)
+gui.F_EmpOcc.dtpStop.zorder(0)
+gui.F_EmpOcc.dtpStop.position(1950,300)
+gui.F_EmpOcc.dtpStop.enabled(True)
+gui.F_EmpOcc.dtpStop.checkbox(False)
+gui.F_EmpOcc.lbl_txt1.create(label,"Beginning Employee",True,1800,200,1,100,1345,True,0,Arial,8,-2147483633,0)
+gui.F_EmpOcc.txtEmpBeg.create(textbox,"",True,1800,330,0,100,1545,True,0,Arial,8,16777215,1)
+gui.F_EmpOcc.txtEmpBeg.maxLength(5)
+gui.F_EmpOcc.txtEmpBeg.event(lostfocus,txtempbeg_lostfocus)
+gui.F_EmpOcc.cmdEmpBegBrows.create(button)
+gui.F_EmpOcc.cmdEmpBegBrows.caption("^")
+gui.F_EmpOcc.cmdEmpBegBrows.visible(True)
+gui.F_EmpOcc.cmdEmpBegBrows.size(330,330)
+gui.F_EmpOcc.cmdEmpBegBrows.zorder(0)
+gui.F_EmpOcc.cmdEmpBegBrows.position(1950,1545)
+gui.F_EmpOcc.cmdEmpBegBrows.enabled(True)
+gui.F_EmpOcc.cmdEmpBegBrows.fontname("Arial")
+gui.F_EmpOcc.cmdEmpBegBrows.fontsize(8)
+gui.F_EmpOcc.cmdEmpBegBrows.event(click,cmdempbegbrows_click)
+gui.F_EmpOcc.lbl_txt2.create(label,"Ending Employee",True,1800,200,1,2350,1345,True,0,Arial,8,-2147483633,0)
+gui.F_EmpOcc.txtEmpEnd.create(textbox,"",True,1800,330,0,2350,1545,True,0,Arial,8,16777215,1)
+gui.F_EmpOcc.txtEmpEnd.maxLength(5)
+gui.F_EmpOcc.cmdEmpEndBrows.create(button)
+gui.F_EmpOcc.cmdEmpEndBrows.caption("^")
+gui.F_EmpOcc.cmdEmpEndBrows.visible(True)
+gui.F_EmpOcc.cmdEmpEndBrows.size(330,330)
+gui.F_EmpOcc.cmdEmpEndBrows.zorder(0)
+gui.F_EmpOcc.cmdEmpEndBrows.position(4200,1545)
+gui.F_EmpOcc.cmdEmpEndBrows.enabled(True)
+gui.F_EmpOcc.cmdEmpEndBrows.fontname("Arial")
+gui.F_EmpOcc.cmdEmpEndBrows.fontsize(8)
+gui.F_EmpOcc.cmdEmpEndBrows.event(click,cmdempendbrows_click)
+gui.F_EmpOcc.chkEmpAll.create(checkbox)
+gui.F_EmpOcc.chkEmpAll.caption("All Employees")
+gui.F_EmpOcc.chkEmpAll.visible(True)
+gui.F_EmpOcc.chkEmpAll.size(1800,300)
+gui.F_EmpOcc.chkEmpAll.zorder(0)
+gui.F_EmpOcc.chkEmpAll.position(100,1975)
+gui.F_EmpOcc.chkEmpAll.enabled(True)
+gui.F_EmpOcc.chkEmpAll.alignment(0)
+gui.F_EmpOcc.chkEmpAll.fontname("Arial")
+gui.F_EmpOcc.chkEmpAll.fontsize(8)
+gui.F_EmpOcc.chkEmpAll.event(click,chkempall_click)
+gui.F_EmpOcc.lvwEmp.create(listview)
+gui.F_EmpOcc.lvwEmp.view(3)
+gui.F_EmpOcc.lvwEmp.addlistviewcolumn("Beginning Employee",2600,0)
+gui.F_EmpOcc.lvwEmp.addlistviewcolumn("Ending Employee",2600,0)
+gui.F_EmpOcc.lvwEmp.visible(True)
+gui.F_EmpOcc.lvwEmp.size(5600,2000)
+gui.F_EmpOcc.lvwEmp.zorder(0)
+gui.F_EmpOcc.lvwEmp.position(100,2325)
+gui.F_EmpOcc.lvwEmp.enabled(True)
+gui.F_EmpOcc.lvwEmp.fontname("Arial")
+gui.F_EmpOcc.lvwEmp.fontsize(8)
+gui.F_EmpOcc.cmdEmpAdd.create(button)
+gui.F_EmpOcc.cmdEmpAdd.caption("Add")
+gui.F_EmpOcc.cmdEmpAdd.visible(True)
+gui.F_EmpOcc.cmdEmpAdd.size(1000,330)
+gui.F_EmpOcc.cmdEmpAdd.zorder(0)
+gui.F_EmpOcc.cmdEmpAdd.position(4600,1545)
+gui.F_EmpOcc.cmdEmpAdd.enabled(True)
+gui.F_EmpOcc.cmdEmpAdd.fontname("Arial")
+gui.F_EmpOcc.cmdEmpAdd.fontsize(8)
+gui.F_EmpOcc.cmdEmpAdd.event(click,cmdempadd_click)
+gui.F_EmpOcc.cmdEmpDelete.create(button)
+gui.F_EmpOcc.cmdEmpDelete.caption("Delete")
+gui.F_EmpOcc.cmdEmpDelete.visible(True)
+gui.F_EmpOcc.cmdEmpDelete.size(1000,330)
+gui.F_EmpOcc.cmdEmpDelete.zorder(0)
+gui.F_EmpOcc.cmdEmpDelete.position(100,4375)
+gui.F_EmpOcc.cmdEmpDelete.enabled(True)
+gui.F_EmpOcc.cmdEmpDelete.fontname("Arial")
+gui.F_EmpOcc.cmdEmpDelete.fontsize(8)
+gui.F_EmpOcc.cmdEmpDelete.event(click,cmdempdelete_click)
+gui.F_EmpOcc.cmdEmpClear.create(button)
+gui.F_EmpOcc.cmdEmpClear.caption("Clear")
+gui.F_EmpOcc.cmdEmpClear.visible(True)
+gui.F_EmpOcc.cmdEmpClear.size(1000,330)
+gui.F_EmpOcc.cmdEmpClear.zorder(0)
+gui.F_EmpOcc.cmdEmpClear.position(1150,4375)
+gui.F_EmpOcc.cmdEmpClear.enabled(True)
+gui.F_EmpOcc.cmdEmpClear.fontname("Arial")
+gui.F_EmpOcc.cmdEmpClear.fontsize(8)
+gui.F_EmpOcc.cmdEmpClear.event(click,cmdempclear_click)
+gui.F_EmpOcc.lbl_txt3.create(label,"Beginning Department",True,1800,200,1,100,4835,True,0,Arial,8,-2147483633,0)
+gui.F_EmpOcc.txtDeptBeg.create(textbox,"",True,1800,330,0,100,5035,True,0,Arial,8,16777215,1)
+gui.F_EmpOcc.txtDeptBeg.maxLength(4)
+gui.F_EmpOcc.txtDeptBeg.event(lostfocus,txtdeptbeg_lostfocus)
+gui.F_EmpOcc.cmdDeptBegBrows.create(button)
+gui.F_EmpOcc.cmdDeptBegBrows.caption("^")
+gui.F_EmpOcc.cmdDeptBegBrows.visible(True)
+gui.F_EmpOcc.cmdDeptBegBrows.size(330,330)
+gui.F_EmpOcc.cmdDeptBegBrows.zorder(0)
+gui.F_EmpOcc.cmdDeptBegBrows.position(1950,5035)
+gui.F_EmpOcc.cmdDeptBegBrows.enabled(True)
+gui.F_EmpOcc.cmdDeptBegBrows.fontname("Arial")
+gui.F_EmpOcc.cmdDeptBegBrows.fontsize(8)
+gui.F_EmpOcc.cmdDeptBegBrows.event(click,cmddeptbegbrows_click)
+gui.F_EmpOcc.lbl_txt4.create(label,"Ending Department",True,1800,200,1,2350,4835,True,0,Arial,8,-2147483633,0)
+gui.F_EmpOcc.txtDeptEnd.create(textbox,"",True,1800,330,0,2350,5035,True,0,Arial,8,16777215,1)
+gui.F_EmpOcc.txtDeptEnd.maxLength(4)
+gui.F_EmpOcc.cmdDeptEndBrows.create(button)
+gui.F_EmpOcc.cmdDeptEndBrows.caption("^")
+gui.F_EmpOcc.cmdDeptEndBrows.visible(True)
+gui.F_EmpOcc.cmdDeptEndBrows.size(330,330)
+gui.F_EmpOcc.cmdDeptEndBrows.zorder(0)
+gui.F_EmpOcc.cmdDeptEndBrows.position(4200,5035)
+gui.F_EmpOcc.cmdDeptEndBrows.enabled(True)
+gui.F_EmpOcc.cmdDeptEndBrows.fontname("Arial")
+gui.F_EmpOcc.cmdDeptEndBrows.fontsize(8)
+gui.F_EmpOcc.cmdDeptEndBrows.event(click,cmddeptendbrows_click)
+gui.F_EmpOcc.chkDeptAll.create(checkbox)
+gui.F_EmpOcc.chkDeptAll.caption("All Departments")
+gui.F_EmpOcc.chkDeptAll.visible(True)
+gui.F_EmpOcc.chkDeptAll.size(1800,300)
+gui.F_EmpOcc.chkDeptAll.zorder(0)
+gui.F_EmpOcc.chkDeptAll.position(100,5465)
+gui.F_EmpOcc.chkDeptAll.enabled(True)
+gui.F_EmpOcc.chkDeptAll.alignment(0)
+gui.F_EmpOcc.chkDeptAll.fontname("Arial")
+gui.F_EmpOcc.chkDeptAll.fontsize(8)
+gui.F_EmpOcc.chkDeptAll.event(click,chkdeptall_click)
+gui.F_EmpOcc.lvwDept.create(listview)
+gui.F_EmpOcc.lvwDept.view(3)
+gui.F_EmpOcc.lvwDept.addlistviewcolumn("Beginning Department",2600,0)
+gui.F_EmpOcc.lvwDept.addlistviewcolumn("Ending Department",2600,0)
+gui.F_EmpOcc.lvwDept.visible(True)
+gui.F_EmpOcc.lvwDept.size(5600,2000)
+gui.F_EmpOcc.lvwDept.zorder(0)
+gui.F_EmpOcc.lvwDept.position(100,5815)
+gui.F_EmpOcc.lvwDept.enabled(True)
+gui.F_EmpOcc.lvwDept.fontname("Arial")
+gui.F_EmpOcc.lvwDept.fontsize(8)
+gui.F_EmpOcc.cmdDeptAdd.create(button)
+gui.F_EmpOcc.cmdDeptAdd.caption("Add")
+gui.F_EmpOcc.cmdDeptAdd.visible(True)
+gui.F_EmpOcc.cmdDeptAdd.size(1000,330)
+gui.F_EmpOcc.cmdDeptAdd.zorder(0)
+gui.F_EmpOcc.cmdDeptAdd.position(4600,5035)
+gui.F_EmpOcc.cmdDeptAdd.enabled(True)
+gui.F_EmpOcc.cmdDeptAdd.fontname("Arial")
+gui.F_EmpOcc.cmdDeptAdd.fontsize(8)
+gui.F_EmpOcc.cmdDeptAdd.event(click,cmddeptadd_click)
+gui.F_EmpOcc.cmdDeptDelete.create(button)
+gui.F_EmpOcc.cmdDeptDelete.caption("Delete")
+gui.F_EmpOcc.cmdDeptDelete.visible(True)
+gui.F_EmpOcc.cmdDeptDelete.size(1000,330)
+gui.F_EmpOcc.cmdDeptDelete.zorder(0)
+gui.F_EmpOcc.cmdDeptDelete.position(100,7865)
+gui.F_EmpOcc.cmdDeptDelete.enabled(True)
+gui.F_EmpOcc.cmdDeptDelete.fontname("Arial")
+gui.F_EmpOcc.cmdDeptDelete.fontsize(8)
+gui.F_EmpOcc.cmdDeptDelete.event(click,cmddeptdelete_click)
+gui.F_EmpOcc.cmdDeptClear.create(button)
+gui.F_EmpOcc.cmdDeptClear.caption("Clear")
+gui.F_EmpOcc.cmdDeptClear.visible(True)
+gui.F_EmpOcc.cmdDeptClear.size(1000,330)
+gui.F_EmpOcc.cmdDeptClear.zorder(0)
+gui.F_EmpOcc.cmdDeptClear.position(1150,7865)
+gui.F_EmpOcc.cmdDeptClear.enabled(True)
+gui.F_EmpOcc.cmdDeptClear.fontname("Arial")
+gui.F_EmpOcc.cmdDeptClear.fontsize(8)
+gui.F_EmpOcc.cmdDeptClear.event(click,cmddeptclear_click)
+gui.F_EmpOcc.cmdPrint.create(button)
+gui.F_EmpOcc.cmdPrint.caption("Print")
+gui.F_EmpOcc.cmdPrint.visible(True)
+gui.F_EmpOcc.cmdPrint.size(1000,360)
+gui.F_EmpOcc.cmdPrint.zorder(0)
+gui.F_EmpOcc.cmdPrint.position(100,8325)
+gui.F_EmpOcc.cmdPrint.enabled(True)
+gui.F_EmpOcc.cmdPrint.fontname("Arial")
+gui.F_EmpOcc.cmdPrint.fontsize(8)
+gui.F_EmpOcc.cmdPrint.event(click,cmdprint_click)
+gui.F_EmpOcc.ddlSelect.create(dropdownlist)
+gui.F_EmpOcc.ddlSelect.visible(True)
+gui.F_EmpOcc.ddlSelect.size(1800,330)
+gui.F_EmpOcc.ddlSelect.zorder(0)
+gui.F_EmpOcc.ddlSelect.position(100,925)
+gui.F_EmpOcc.ddlSelect.enabled(True)
+gui.F_EmpOcc.ddlSelect.fontname("Arial")
+gui.F_EmpOcc.ddlSelect.fontsize(8)
+gui.F_EmpOcc.ddlSelect.event(click,ddlselect_click)
+gui.F_EmpOcc.lbl7.create(label,"Select by",True,1800,255,1,100,715,True,0,Arial,8,-2147483633,0)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+
+Variable.Global.iEmpKey.Declare(Long,0)
+Variable.Global.iDeptKey.Declare(Long,0)
+Variable.Global.bChkOpt.Declare(Boolean,True)
+Variable.Global.iKey.Declare(Long,0)
+Variable.Global.sRange.Declare(String)
+Variable.Global.sDateRange.Declare(String)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Coded by: MLA
+'Project Start Date: 2/27/2011
+'Notes:
+'  Pacific
+
+V.Local.dDate.Declare(Date)
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass,7200)
+F.Intrinsic.Date.DateAdd("D",-1,V.Ambient.Date,V.Local.dDate)
+Gui.F_EmpOcc.dtpStart.Value(V.Local.dDate)
+Gui.F_EmpOcc.dtpStop.Value(V.Local.dDate)
+Gui.F_EmpOcc.ddlSelect.AddItem("Employee",0)
+Gui.F_EmpOcc.ddlSelect.AddItem("Department",1)
+Gui.F_EmpOcc.ddlSelect.Text("Employee")
+F.Intrinsic.Control.CallSub(Ddlselect_click)
+Gui.F_EmpOcc..Show
+
+Program.Sub.Main.End
+
+program.sub.f_empocc_unload.start
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+program.sub.f_empocc_unload.end
+
+program.sub.cmdempbegbrows_click.start
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sWidths.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("cmdEmpBegBrows_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sSql.Set("Select EMPLOYEE, NAME from V_EMPLOYEE_MSTR ORDER BY EMPLOYEE")
+V.Local.sTitles.Set("Employee ID*!*Name")
+V.Local.sWidths.Set("2500*!*4700")
+
+F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+F.Intrinsic.String.Split(V.Local.sWidths,"*!*",V.Local.sWidths)
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Selet Beginning Employee","con",V.Local.sSql,V.Local.sTitles,V.Local.sWidths,5000,8000,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.F_EmpOcc.txtEmpBeg.Text(V.Local.sRet.Trim)
+	Gui.F_EmpOcc.txtEmpEnd.Text(V.Screen.F_EmpOcc!txtEmpBeg.Text)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdEmpBegBrows_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdempbegbrows_click.end
+
+program.sub.cmdempendbrows_click.start
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sWidths.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("cmdEmpEndBrows_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sSql.Set("Select EMPLOYEE, NAME from V_EMPLOYEE_MSTR ORDER BY EMPLOYEE")
+V.Local.sTitles.Set("Employee ID*!*Name")
+V.Local.sWidths.Set("2500*!*4700")
+
+F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+F.Intrinsic.String.Split(V.Local.sWidths,"*!*",V.Local.sWidths)
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Selet Ending Employee","con",V.Local.sSql,V.Local.sTitles,V.Local.sWidths,5000,8000,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.F_EmpOcc.txtEmpEnd.Text(V.Local.sRet.Trim)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdEmpEndBrows_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdempendbrows_click.end
+
+program.sub.cmdempadd_click.start
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("cmdEmpAdd_Err")
+F.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.String.Concat("Select EMPLOYEE from V_EMPLOYEE_MSTR where EMPLOYEE = '",V.Screen.F_EmpOcc!txtEmpBeg.Text,"'",V.Local.sSql)
+F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,"True")
+	F.Intrinsic.UI.Msgbox("Invalid beginning employee selected!","Invalid Employee")
+	Gui.F_EmpOcc.txtEmpBeg.SetFocus
+	F.ODBC.con!rst.Close
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Else
+	F.ODBC.con!rst.Close
+	F.Intrinsic.String.Concat("Select EMPLOYEE from V_EMPLOYEE_MSTR where EMPLOYEE = '",V.Screen.F_EmpOcc!txtEmpEnd.Text,"'",V.Local.sSql)
+	F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+		F.Intrinsic.UI.Msgbox("Invalid ending employee selected!","Invalid Employee")
+		Gui.F_EmpOcc.txtEmpEnd.SetFocus
+		F.ODBC.con!rst.Close
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.Else
+		F.ODBC.con!rst.Close
+		F.Intrinsic.Math.Add(V.Global.iEmpKey,1,V.Global.iEmpKey)
+		Gui.F_EmpOcc.lvwEmp.AddListItem(V.Global.iEmpKey,V.Screen.F_EmpOcc!txtEmpBeg.Text)
+		Gui.F_EmpOcc.lvwEmp.SetListItemSubItemText(V.Global.iEmpKey,1,V.Screen.F_EmpOcc!txtEmpEnd.Text)
+		Gui.F_EmpOcc.txtEmpBeg.Text("")
+		Gui.F_EmpOcc.txtEmpEnd.Text("")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdEmpAdd_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdempadd_click.end
+
+program.sub.txtempbeg_lostfocus.start
+Gui.F_EmpOcc.txtEmpEnd.Text(V.Screen.F_EmpOcc!txtEmpBeg.Text)
+
+program.sub.txtempbeg_lostfocus.end
+
+program.sub.cmdempdelete_click.start
+V.Local.sError.Declare(String)
+V.Local.iKey.Declare(Long)
+V.Local.iOrd.Declare(Long)
+
+F.Intrinsic.Control.SetErrorHandler("cmdEmpDelete_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.iKey.Set(V.Screen.F_EmpOcc!lvwEmp.SelectedItemKey)
+Gui.F_EmpOcc.lvwEmp.ListItemKeyToOrdinal(V.Local.iKey,V.Local.iOrd)
+Gui.F_EmpOcc.lvwEmp.RemoveItem(V.Local.iOrd)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdEmpDelete_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdempdelete_click.end
+
+program.sub.cmdempclear_click.start
+V.Local.sError.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("cmdEmpClear_Err")
+F.Intrinsic.Control.ClearErrors
+
+Gui.F_EmpOcc.lvwEmp.ClearItems
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdEmpClear_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdempclear_click.end
+
+program.sub.chkempall_click.start
+V.Local.sError.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("chkEmpAll_Err")
+F.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!chkEmpAll.Value,=,1)
+	Gui.F_EmpOcc.txtEmpBeg.Enabled(False)
+	Gui.F_EmpOcc.txtEmpEnd.Enabled(False)
+	Gui.F_EmpOcc.txtEmpBeg.Text("")
+	Gui.F_EmpOcc.txtEmpEnd.Text("")
+	Gui.F_EmpOcc.cmdEmpBegBrows.Enabled(False)
+	Gui.F_EmpOcc.cmdEmpEndBrows.Enabled(False)
+	Gui.F_EmpOcc.cmdEmpAdd.Enabled(False)
+	Gui.F_EmpOcc.cmdEmpClear.Enabled(False)
+	Gui.F_EmpOcc.cmdEmpDelete.Enabled(False)
+	Gui.F_EmpOcc.lvwEmp.Enabled(False)
+F.Intrinsic.Control.Else
+	Gui.F_EmpOcc.txtEmpBeg.Enabled(True)
+	Gui.F_EmpOcc.txtEmpEnd.Enabled(True)
+	Gui.F_EmpOcc.cmdEmpBegBrows.Enabled(True)
+	Gui.F_EmpOcc.cmdEmpEndBrows.Enabled(True)
+	Gui.F_EmpOcc.cmdEmpAdd.Enabled(True)
+	Gui.F_EmpOcc.cmdEmpClear.Enabled(True)
+	Gui.F_EmpOcc.cmdEmpClear.Enabled(True)
+	Gui.F_EmpOcc.lvwEmp.Enabled(True)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("chkEmpAll_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.chkempall_click.end
+
+program.sub.cmddeptbegbrows_click.start
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sWidths.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("cmdDeptBegBrows_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sSql.Set("Select DEPT_ID, DEPT_NAME from V_DEPARTMENTS ORDER BY DEPT_ID")
+V.Local.sTitles.Set("Dept ID*!*Name")
+V.Local.sWidths.Set("2500*!*4700")
+
+F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+F.Intrinsic.String.Split(V.Local.sWidths,"*!*",V.Local.sWidths)
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Selet Beginning Department","con",V.Local.sSql,V.Local.sTitles,V.Local.sWidths,5000,8000,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.F_EmpOcc.txtDeptBeg.Text(V.Local.sRet.Trim)
+	Gui.F_EmpOcc.txtDeptEnd.Text(V.Screen.F_EmpOcc!txtDeptBeg.Text)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdDeptBegBrows_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmddeptbegbrows_click.end
+
+program.sub.cmddeptendbrows_click.start
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sWidths.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("cmdDeptEndBrows_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sSql.Set("Select DEPT_ID, DEPT_NAME from V_DEPARTMENTS ORDER BY DEPT_ID")
+V.Local.sTitles.Set("Dept ID*!*Name")
+V.Local.sWidths.Set("2500*!*4700")
+
+F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+F.Intrinsic.String.Split(V.Local.sWidths,"*!*",V.Local.sWidths)
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Selet Ending Deptartment","con",V.Local.sSql,V.Local.sTitles,V.Local.sWidths,5000,8000,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.F_EmpOcc.txtDeptEnd.Text(V.Local.sRet.Trim)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdDeptEndBrows_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmddeptendbrows_click.end
+
+program.sub.cmddeptadd_click.start
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("cmdDeptAdd_Err")
+F.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.String.Concat("Select DEPT_ID from V_DEPARTMENTS where DEPT_ID = '",V.Screen.F_EmpOcc!txtDeptBeg.Text,"'",V.Local.sSql)
+F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,"True")
+	F.Intrinsic.UI.Msgbox("Invalid beginning department selected!","Invalid Department")
+	Gui.F_EmpOcc.txtDeptBeg.SetFocus
+	F.ODBC.con!rst.Close
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Else
+	F.ODBC.con!rst.Close
+	F.Intrinsic.String.Concat("Select DEPT_ID from V_DEPARTMENTS where DEPT_ID = '",V.Screen.F_EmpOcc!txtDeptEnd.Text,"'",V.Local.sSql)
+	F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSql)
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+		F.Intrinsic.UI.Msgbox("Invalid ending department selected!","Invalid Department")
+		Gui.F_EmpOcc.txtDeptEnd.SetFocus
+		F.ODBC.con!rst.Close
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.Else
+		F.ODBC.con!rst.Close
+		F.Intrinsic.Math.Add(V.Global.iEmpKey,1,V.Global.iDeptKey)
+		Gui.F_EmpOcc.lvwDept.AddListItem(V.Global.iDeptKey,V.Screen.F_EmpOcc!txtDeptBeg.Text)
+		Gui.F_EmpOcc.lvwDept.SetListItemSubItemText(V.Global.iDeptKey,1,V.Screen.F_EmpOcc!txtDeptEnd.Text)
+		Gui.F_EmpOcc.txtDeptBeg.Text("")
+		Gui.F_EmpOcc.txtDeptEnd.Text("")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdDeptAdd_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmddeptadd_click.end
+
+program.sub.chkdeptall_click.start
+V.Local.sError.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("chkDeptAll_Err")
+F.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!chkDeptAll.Value,=,1)
+	Gui.F_EmpOcc.txtDeptBeg.Enabled(False)
+	Gui.F_EmpOcc.txtDeptEnd.Enabled(False)
+	Gui.F_EmpOcc.txtDeptBeg.Text("")
+	Gui.F_EmpOcc.txtDeptEnd.Text("")
+	Gui.F_EmpOcc.cmdDeptBegBrows.Enabled(False)
+	Gui.F_EmpOcc.cmdDeptEndBrows.Enabled(False)
+	Gui.F_EmpOcc.cmdDeptAdd.Enabled(False)
+	Gui.F_EmpOcc.cmdDeptClear.Enabled(False)
+	Gui.F_EmpOcc.cmdDeptDelete.Enabled(False)
+	Gui.F_EmpOcc.lvwDept.Enabled(False)
+F.Intrinsic.Control.Else
+	Gui.F_EmpOcc.txtDeptBeg.Enabled(True)
+	Gui.F_EmpOcc.txtDeptEnd.Enabled(True)
+	Gui.F_EmpOcc.cmdDeptBegBrows.Enabled(True)
+	Gui.F_EmpOcc.cmdDeptEndBrows.Enabled(True)
+	Gui.F_EmpOcc.cmdDeptAdd.Enabled(True)
+	Gui.F_EmpOcc.cmdDeptClear.Enabled(True)
+	Gui.F_EmpOcc.cmdDeptDelete.Enabled(True)
+	Gui.F_EmpOcc.lvwDept.Enabled(True)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("chkDeptAll_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.chkdeptall_click.end
+
+program.sub.cmddeptdelete_click.start
+V.Local.sError.Declare(String)
+V.Local.iKey.Declare(Long)
+V.Local.iOrd.Declare(Long)
+
+F.Intrinsic.Control.SetErrorHandler("cmdDeptDelete_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.iKey.Set(V.Screen.F_EmpOcc!lvwDept.SelectedItemKey)
+Gui.F_EmpOcc.lvwDept.ListItemKeyToOrdinal(V.Local.iKey,V.Local.iOrd)
+Gui.F_EmpOcc.lvwDept.RemoveItem(V.Local.iOrd)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdDeptDelete_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmddeptdelete_click.end
+
+program.sub.cmddeptclear_click.start
+V.Local.sError.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("cmdDeptClear_Err")
+F.Intrinsic.Control.ClearErrors
+
+Gui.F_EmpOcc.lvwDept.ClearItems
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdDeptClear_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmddeptclear_click.end
+
+program.sub.cmdprint_click.start
+V.Local.sError.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("cmdPrint_Err")
+F.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.Control.CallSub(Chkopt)
+F.Intrinsic.Control.If(V.Global.bChkOpt,=,True)
+	Gui.F_EmpOcc..Visible(False)
+	F.Intrinsic.Control.CallSub(Loadrst)
+	F.Intrinsic.Control.CallSub(Callbi)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdPrint_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.cmdprint_click.end
+
+Program.Sub.ChkOpt.Start
+V.Local.sError.Declare(String)
+V.Local.dStart.Declare(Date)
+V.Local.dStop.Declare(Date)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("ChkOpt_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Global.bChkOpt.Set(True)
+V.Local.dStart.Set(V.Screen.F_EmpOcc!dtpStart.Value)
+V.Local.dStop.Set(V.Screen.F_EmpOcc!dtpStop.Value)
+F.Intrinsic.Control.If(V.Local.dStart,>,V.Local.dStop)
+	F.Intrinsic.UI.Msgbox("Please select a valid date range","Invalid Date Range")
+	V.Global.bChkOpt.Set(False)
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Employee")
+	F.Intrinsic.Control.If(V.Screen.F_EmpOcc!chkEmpAll.Value,<>,1)
+		Gui.F_EmpOcc.lvwEmp.RetrieveAllListItems(V.Local.sRet)
+		F.Intrinsic.Control.If(V.Local.sRet,=,"***NORETURN***")
+			F.Intrinsic.UI.Msgbox("Please select a valid employee range","Invalid Employee Range")
+			V.Global.bChkOpt.Set(False)
+		F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.If(V.Screen.F_EmpOcc!chkDeptAll.Value,<>,1)
+		Gui.F_EmpOcc.lvwDept.RetrieveAllListItems(V.Local.sRet)
+		F.Intrinsic.Control.If(V.Local.sRet,=,"***NORETURN***")
+			F.Intrinsic.UI.Msgbox("Please select a valid department range","Invalid Department Range")
+			V.Global.bChkOpt.Set(False)
+		F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("ChkOpt_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.ChkOpt.End
+
+Program.Sub.LoadRST.Start
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.dStart.Declare(Date)
+V.Local.dStop.Declare(Date)
+V.Local.sList.Declare(String)
+V.Local.sListItm.Declare(String)
+V.Local.i.Declare(Long)
+V.Local.iOrd.Declare(Long)
+
+F.Intrinsic.Control.SetErrorHandler("LoadRST_Err")
+F.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.String.Concat("Delete ATG_3837_BI_Emp_Pnts where Terminal = '",V.Caller.Terminal,"'",V.Local.sSql)
+F.ODBC.Connection!con.Execute(V.Local.sSql)
+V.Local.sSql.Set("Select * from ATG_BI_Emp_Points")
+F.ODBC.Connection!con.OpenRecordsetRW("rst",V.Local.sSql)
+V.Local.dStart.Set(V.Screen.F_EmpOcc!dtpStart.Value)
+V.Local.dStop.Set(V.Screen.F_EmpOcc!dtpStop.Value)
+F.Intrinsic.String.Concat(V.Local.dStart," to ",V.Local.dStop,V.Global.sDateRange)
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Employee")
+	F.Intrinsic.Control.If(V.Screen.F_EmpOcc!chkEmpAll.Value,=,1)
+		V.Global.sRange.Set("All Employees")
+		F.Intrinsic.String.Concat("Select * from ATG_3837_Emp_PntsOcc where Occ_Date between '",V.Local.dStart.PervasiveDate,"' and '",V.Local.dStop.PervasiveDate,"' ORDER BY Employee, Date_In",V.Local.sSql)
+		F.ODBC.Connection!con.OpenRecordsetRO("rstEmp",V.Local.sSql)
+		F.Intrinsic.Control.DoUntil(V.ODBC.con!rstEmp.EOF,=,True)
+			F.ODBC.con!rst.AddNew
+			F.ODBC.con!rst.Set!Terminal(V.Caller.Terminal)
+			F.ODBC.con!rst.Set!Employee(V.ODBC.con!rstEmp.FieldVal!Employee)
+			F.ODBC.con!rst.Set!Name(V.ODBC.con!rstEmp.FieldVal!Name)
+			F.ODBC.con!rst.Set!Date_In(V.ODBC.con!rstEmp.FieldVal!Date_In)
+			F.ODBC.con!rst.Set!Date_Out(V.ODBC.con!rstEmp.FieldVal!Date_Out)
+			F.ODBC.con!rst.Set!Shift(V.ODBC.con!rstEmp.FieldVal!Shift)
+			F.ODBC.con!rst.Set!Dept(V.ODBC.con!rstEmp.FieldVal!Dept)
+			F.ODBC.con!rst.Set!Bal_Group(V.ODBC.con!rstEmp.FieldVal!Bal_Group)
+			F.ODBC.con!rst.Set!Occ_ID(V.ODBC.con!rstEmp.FieldVal!Occ_ID)
+			F.ODBC.con!rst.Set!Occ_Name(V.ODBC.con!rstEmp.FieldVal!Occ_Name)
+			F.ODBC.con!rst.Set!Occ_Point(V.ODBC.con!rstEmp.FieldVal!Occ_Point)
+			F.ODBC.con!rst.Set!Occ_Date(V.ODBC.con!rstEmp.FieldVal!Occ_Date)
+			F.ODBC.con!rst.Update
+			F.ODBC.con!rstEmp.MoveNext
+		F.Intrinsic.Control.Loop
+		F.ODBC.con!rstEmp.Close
+	F.Intrinsic.Control.Else
+		Gui.F_EmpOcc.lvwEmp.RetrieveAllListItems(V.Local.sList)
+		F.Intrinsic.String.Split(V.Local.sList,"*!*",V.Local.sList)
+		F.Intrinsic.Control.For(V.Local.i,V.Local.sList.LBound,V.Local.sList.UBound,1)
+			Gui.F_EmpOcc.lvwEmp.ListItemKeyToOrdinal(V.Local.sList(V.Local.i),V.Local.iOrd)
+			V.Local.sListItm.Set(V.Screen.F_EmpOcc!lvwEmp.ListItemTextExtended(V.Local.iOrd))
+			F.Intrinsic.String.Split(V.Local.sListItm,"*!*",V.Local.sListItm)
+			F.Intrinsic.String.Concat(V.Global.sRange,", ",V.Local.sListItm(0)," to ",V.Local.sListItm(1),V.Global.sRange)
+			F.Intrinsic.String.Concat("Select * from ATG_3837_Emp_PntsOcc where Occ_Date between '",V.Local.dStart.PervasiveDate,"' and '",V.Local.dStop.PervasiveDate,"' and Employee >= '",V.Local.sListItm(0),"' and Employee <= '",V.Local.sListItm(1),"' ORDER BY Employee, Date_In",V.Local.sSql)
+			F.ODBC.Connection!con.OpenRecordsetRO("rstEmp",V.Local.sSql)
+			F.Intrinsic.Control.DoUntil(V.ODBC.con!rstEmp.EOF,=,True)
+				F.ODBC.con!rst.AddNew
+				F.ODBC.con!rst.Set!Terminal(V.Caller.Terminal)
+				F.ODBC.con!rst.Set!Employee(V.ODBC.con!rstEmp.FieldVal!Employee)
+				F.ODBC.con!rst.Set!Name(V.ODBC.con!rstEmp.FieldVal!Name)
+				F.ODBC.con!rst.Set!Date_In(V.ODBC.con!rstEmp.FieldVal!Date_In)
+				F.ODBC.con!rst.Set!Date_Out(V.ODBC.con!rstEmp.FieldVal!Date_Out)
+				F.ODBC.con!rst.Set!Shift(V.ODBC.con!rstEmp.FieldVal!Shift)
+				F.ODBC.con!rst.Set!Dept(V.ODBC.con!rstEmp.FieldVal!Dept)
+				F.ODBC.con!rst.Set!Bal_Group(V.ODBC.con!rstEmp.FieldVal!Bal_Group)
+				F.ODBC.con!rst.Set!Occ_ID(V.ODBC.con!rstEmp.FieldVal!Occ_ID)
+				F.ODBC.con!rst.Set!Occ_Name(V.ODBC.con!rstEmp.FieldVal!Occ_Name)
+				F.ODBC.con!rst.Set!Occ_Point(V.ODBC.con!rstEmp.FieldVal!Occ_Point)
+				F.ODBC.con!rst.Set!Occ_Date(V.ODBC.con!rstEmp.FieldVal!Occ_Date)
+				F.ODBC.con!rst.Update
+				F.ODBC.con!rstEmp.MoveNext
+			F.Intrinsic.Control.Loop
+			F.ODBC.con!rstEmp.Close
+		F.Intrinsic.Control.Next(V.Local.i)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.If(V.Screen.F_EmpOcc!chkDeptAll.Value,=,1)
+		V.Global.sRange.Set("All Departments")
+		F.Intrinsic.String.Concat("Select * from ATG_3837_Emp_PntsOcc where Occ_Date between '",V.Local.dStart.PervasiveDate,"' and '",V.Local.dStop.PervasiveDate,"' ORDER BY Dept, Employee, Date_In",V.Local.sSql)
+		F.ODBC.Connection!con.OpenRecordsetRO("rstEmp",V.Local.sSql)
+		F.Intrinsic.Control.DoUntil(V.ODBC.con!rstEmp.EOF,=,True)
+			F.ODBC.con!rst.AddNew
+			F.ODBC.con!rst.Set!Terminal(V.Caller.Terminal)
+			F.ODBC.con!rst.Set!Employee(V.ODBC.con!rstEmp.FieldVal!Employee)
+			F.ODBC.con!rst.Set!Name(V.ODBC.con!rstEmp.FieldVal!Name)
+			F.ODBC.con!rst.Set!Date_In(V.ODBC.con!rstEmp.FieldVal!Date_In)
+			F.ODBC.con!rst.Set!Date_Out(V.ODBC.con!rstEmp.FieldVal!Date_Out)
+			F.ODBC.con!rst.Set!Shift(V.ODBC.con!rstEmp.FieldVal!Shift)
+			F.ODBC.con!rst.Set!Dept(V.ODBC.con!rstEmp.FieldVal!Dept)
+			F.ODBC.con!rst.Set!Bal_Group(V.ODBC.con!rstEmp.FieldVal!Bal_Group)
+			F.ODBC.con!rst.Set!Occ_ID(V.ODBC.con!rstEmp.FieldVal!Occ_ID)
+			F.ODBC.con!rst.Set!Occ_Name(V.ODBC.con!rstEmp.FieldVal!Occ_Name)
+			F.ODBC.con!rst.Set!Occ_Point(V.ODBC.con!rstEmp.FieldVal!Occ_Point)
+			F.ODBC.con!rst.Set!Occ_Date(V.ODBC.con!rstEmp.FieldVal!Occ_Date)
+			F.ODBC.con!rst.Update
+			F.ODBC.con!rstEmp.MoveNext
+		F.Intrinsic.Control.Loop
+		F.ODBC.con!rstEmp.Close
+	F.Intrinsic.Control.Else
+		Gui.F_EmpOcc.lvwDept.RetrieveAllListItems(V.Local.sList)
+		F.Intrinsic.String.Split(V.Local.sList,"*!*",V.Local.sList)
+		F.Intrinsic.Control.For(V.Local.i,V.Local.sList.LBound,V.Local.sList.UBound,1)
+			Gui.F_EmpOcc.lvwDept.ListItemKeyToOrdinal(V.Local.sList(V.Local.i),V.Local.iOrd)
+			V.Local.sListItm.Set(V.Screen.F_EmpOcc!lvwDept.ListItemTextExtended(V.Local.iOrd))
+			F.Intrinsic.String.Split(V.Local.sListItm,"*!*",V.Local.sListItm)
+			F.Intrinsic.String.Concat(V.Global.sRange,", ",V.Local.sListItm(0)," to ",V.Local.sListItm(1),V.Global.sRange)
+			F.Intrinsic.String.Concat("Select * from ATG_3837_Emp_PntsOcc where Occ_Date between '",V.Local.dStart.PervasiveDate,"' and '",V.Local.dStop.PervasiveDate,"' and Dept >= '",V.Local.sListItm(0),"' and Dept <= '",V.Local.sListItm(1),"' ORDER BY Dept, Employee, Date_In",V.Local.sSql)
+			F.ODBC.Connection!con.OpenRecordsetRO("rstEmp",V.Local.sSql)
+			F.Intrinsic.Control.DoUntil(V.ODBC.con!rstEmp.EOF,=,True)
+				F.ODBC.con!rst.AddNew
+				F.ODBC.con!rst.Set!Terminal(V.Caller.Terminal)
+				F.ODBC.con!rst.Set!Employee(V.ODBC.con!rstEmp.FieldVal!Employee)
+				F.ODBC.con!rst.Set!Name(V.ODBC.con!rstEmp.FieldVal!Name)
+				F.ODBC.con!rst.Set!Date_In(V.ODBC.con!rstEmp.FieldVal!Date_In)
+				F.ODBC.con!rst.Set!Date_Out(V.ODBC.con!rstEmp.FieldVal!Date_Out)
+				F.ODBC.con!rst.Set!Shift(V.ODBC.con!rstEmp.FieldVal!Shift)
+				F.ODBC.con!rst.Set!Dept(V.ODBC.con!rstEmp.FieldVal!Dept)
+				F.ODBC.con!rst.Set!Bal_Group(V.ODBC.con!rstEmp.FieldVal!Bal_Group)
+				F.ODBC.con!rst.Set!Occ_ID(V.ODBC.con!rstEmp.FieldVal!Occ_ID)
+				F.ODBC.con!rst.Set!Occ_Name(V.ODBC.con!rstEmp.FieldVal!Occ_Name)
+				F.ODBC.con!rst.Set!Occ_Point(V.ODBC.con!rstEmp.FieldVal!Occ_Point)
+				F.ODBC.con!rst.Set!Occ_Date(V.ODBC.con!rstEmp.FieldVal!Occ_Date)
+				F.ODBC.con!rst.Update
+				F.ODBC.con!rstEmp.MoveNext
+			F.Intrinsic.Control.Loop
+			F.ODBC.con!rstEmp.Close
+		F.Intrinsic.Control.Next(V.Local.i)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+F.ODBC.con!rst.Close
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("LoadRST_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.LoadRST.End
+
+program.sub.ddlselect_click.start
+V.Local.sError.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("ddlSelect_Err")
+F.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Employee")
+	Gui.F_EmpOcc.chkDeptAll.Enabled(False)
+	Gui.F_EmpOcc.chkEmpAll.Enabled(True)
+	Gui.F_EmpOcc.cmdDeptAdd.Enabled(False)
+	Gui.F_EmpOcc.cmdDeptBegBrows.Enabled(False)
+	Gui.F_EmpOcc.cmdDeptClear.Enabled(False)
+	Gui.F_EmpOcc.cmdDeptDelete.Enabled(False)
+	Gui.F_EmpOcc.cmdDeptEndBrows.Enabled(False)
+	Gui.F_EmpOcc.cmdEmpAdd.Enabled(True)
+	Gui.F_EmpOcc.cmdEmpBegBrows.Enabled(True)
+	Gui.F_EmpOcc.cmdEmpClear.Enabled(True)
+	Gui.F_EmpOcc.cmdEmpDelete.Enabled(True)
+	Gui.F_EmpOcc.cmdEmpEndBrows.Enabled(True)
+	Gui.F_EmpOcc.txtDeptBeg.Enabled(False)
+	Gui.F_EmpOcc.txtDeptEnd.Enabled(False)
+	Gui.F_EmpOcc.txtEmpBeg.Enabled(True)
+	Gui.F_EmpOcc.txtEmpEnd.Enabled(True)
+	Gui.F_EmpOcc.lvwDept.Enabled(False)
+	Gui.F_EmpOcc.lvwEmp.Enabled(True)
+F.Intrinsic.Control.Else
+	Gui.F_EmpOcc.chkDeptAll.Enabled(True)
+	Gui.F_EmpOcc.chkEmpAll.Enabled(False)
+	Gui.F_EmpOcc.cmdDeptAdd.Enabled(True)
+	Gui.F_EmpOcc.cmdDeptBegBrows.Enabled(True)
+	Gui.F_EmpOcc.cmdDeptClear.Enabled(True)
+	Gui.F_EmpOcc.cmdDeptDelete.Enabled(True)
+	Gui.F_EmpOcc.cmdDeptEndBrows.Enabled(True)
+	Gui.F_EmpOcc.cmdEmpAdd.Enabled(False)
+	Gui.F_EmpOcc.cmdEmpBegBrows.Enabled(False)
+	Gui.F_EmpOcc.cmdEmpClear.Enabled(False)
+	Gui.F_EmpOcc.cmdEmpDelete.Enabled(False)
+	Gui.F_EmpOcc.cmdEmpEndBrows.Enabled(False)
+	Gui.F_EmpOcc.txtDeptBeg.Enabled(True)
+	Gui.F_EmpOcc.txtDeptEnd.Enabled(True)
+	Gui.F_EmpOcc.txtEmpBeg.Enabled(False)
+	Gui.F_EmpOcc.txtEmpEnd.Enabled(False)
+	Gui.F_EmpOcc.lvwDept.Enabled(True)
+	Gui.F_EmpOcc.lvwEmp.Enabled(False)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("ddlSelect_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.ddlselect_click.end
+
+program.sub.txtdeptbeg_lostfocus.start
+Gui.F_EmpOcc.txtDeptEnd.Text(V.Screen.F_EmpOcc!txtDeptBeg.Text)
+
+program.sub.txtdeptbeg_lostfocus.end
+
+Program.Sub.CallBI.Start
+V.Local.sError.Declare(String)
+V.Local.iBI.Declare(Long)
+V.Local.sParam.Declare(String)
+V.Local.sParamVal.Declare(String)
+
+F.Intrinsic.Control.SetErrorHandler("CallBI_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sParam.Set("Terminal*!*DateRange*!*Range")
+F.Intrinsic.String.Concat(V.Caller.Terminal,"*!*",V.Global.sDateRange,"*!*",V.Global.sRange,V.Local.sParamVal)
+F.Intrinsic.String.Split(V.Local.sParam,"*!*",V.Local.sParam)
+F.Intrinsic.String.Split(V.Local.sParamVal,"*!*",V.Local.sParamVal)
+F.Intrinsic.Control.If(V.Screen.F_EmpOcc!ddlSelect.Text,=,"Employee")
+	F.Global.BI.GetIDFromName("ATG_3837_BI_Emp_Points_by_Emp_Var4.rpt",V.Local.iBI)
+F.Intrinsic.Control.Else
+	F.Global.BI.GetIDFromName("ATG_3837_BI_Emp_Points_by_Dept_Var4.rpt",V.Local.iBI)
+F.Intrinsic.Control.EndIf
+F.Global.BI.PrintReport(V.Local.iBI,0,V.Local.sParam,V.Local.sParamVal,"",False)
+F.Intrinsic.Control.CallSub(F_empocc_unload)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("CallBI_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.CallBI.End
+
+Program.Sub.ScreenSS.Start
+
+
+
+
+
+
+
+
+
+
+
+
+
+Program.Sub.ScreenSS.End
+
